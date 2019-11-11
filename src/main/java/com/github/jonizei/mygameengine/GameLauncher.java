@@ -7,11 +7,10 @@ public class GameLauncher {
 
     public GameLauncher(GameAdapter adapter) {
 
-        GameScene mainScene = adapter.create();
-        GameRenderer renderer = GameRenderer.getInstance();
-        renderer.setGameScene(mainScene);
-        Platform.runLater(renderer::initStage);
-        new Thread(new GameRunner(renderer, mainScene)).start();
+        GameEngine.setRenderer(GameRenderer.getInstance());
+        GameEngine.setScene(adapter.create());
+        GameEngine.setRunner(new GameRunner());
+        new Thread(GameEngine.getRunner()).start();
 
     }
 }

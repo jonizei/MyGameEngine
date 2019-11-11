@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 
 public class GameRunner implements Runnable {
 
-    private GameScene scene;
-    private GameRenderer renderer;
+    // 60 FRAMES PER SECOND
+    private static final long FRAME_SPEED_MILLIS = 16;
+    private static final int FRAME_SPEED_NANOS = 6;
 
-    public GameRunner(GameRenderer renderer, GameScene scene) {
-        this.renderer = renderer;
-        this.scene = scene;
+    public GameRunner() {
+
     }
 
     @Override
@@ -19,12 +19,12 @@ public class GameRunner implements Runnable {
 
         start();
 
-        while(renderer.isRunning()) {
+        while(GameEngine.getRenderer().isRunning()) {
             update();
             Platform.runLater(this::render);
 
             try {
-                Thread.sleep(16,6);
+                Thread.sleep(FRAME_SPEED_MILLIS,FRAME_SPEED_NANOS);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
@@ -34,17 +34,17 @@ public class GameRunner implements Runnable {
     }
 
     public void start() {
-        scene.getGameObjects().forEach(gameObject -> gameObject.getComponents().forEach(component -> component.start()));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().forEach(Component::start));
     }
 
     public void update() {
-        scene.getGameObjects().forEach(gameObject -> gameObject.getComponents().forEach(component -> component.update()));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().forEach(Component::update));
     }
 
     public void render() {
-        scene.getGameObjects().stream().forEach(gameObject -> {
+        GameEngine.getScene().getGameObjects().stream().forEach(gameObject -> {
             List<GraphicComponent> graphicComponents = (List) gameObject.getComponents().stream().filter(component -> component instanceof GraphicComponent).collect(Collectors.toList());
-            graphicComponents.forEach(item -> item.render(renderer.getGraphics()));
+            graphicComponents.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));
         });
     }
 

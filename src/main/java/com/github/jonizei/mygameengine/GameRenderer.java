@@ -1,6 +1,7 @@
 package com.github.jonizei.mygameengine;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -12,7 +13,6 @@ public class GameRenderer extends Application {
 
     private Canvas canvas;
     private Stage stage;
-    private GameScene gameScene;
     private Graphics graphics;
     private boolean isRunning = false;
 
@@ -55,9 +55,9 @@ public class GameRenderer extends Application {
     public void initStage() {
 
         Group root = new Group();
-        Scene scene = new Scene(root, MetricConverter.toPixels(gameScene.getWidth()), MetricConverter.toPixels(gameScene.getHeight()));
+        Scene scene = new Scene(root, MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
 
-        canvas = new Canvas(MetricConverter.toPixels(gameScene.getWidth()), MetricConverter.toPixels(gameScene.getHeight()));
+        canvas = new Canvas(MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
         graphics = new Graphics(canvas.getGraphicsContext2D());
 
         root.getChildren().add(canvas);
@@ -68,10 +68,6 @@ public class GameRenderer extends Application {
 
     public Graphics getGraphics() {
         return this.graphics;
-    }
-
-    public void setGameScene(GameScene gameScene) {
-        this.gameScene = gameScene;
     }
 
 }
