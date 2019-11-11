@@ -1,9 +1,11 @@
 package com.github.jonizei.mygameengine;
 
-public class App extends GameEngine
+public class App
 {
     public static void main( String[] args )
     {
-        launch(args);
+        // CREATE SEPARATE LAUNCHER
+        // GAME FILE USES SOME KIND OF TEMPLATE
+        GameLauncher launcher = new GameLauncher(new MyGame());
     }
 }
