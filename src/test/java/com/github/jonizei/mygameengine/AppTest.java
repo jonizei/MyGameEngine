@@ -1,4 +1,4 @@
-package com.github.jonizei.my-game-engine;
+package com.github.jonizei.mygameengine;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
