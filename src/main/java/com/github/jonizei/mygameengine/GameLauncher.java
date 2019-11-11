@@ -5,7 +5,7 @@ import javafx.application.Platform;
 
 public class GameLauncher {
 
-    public GameLauncher(GameEngineAdapter adapter) {
+    public GameLauncher(GameAdapter adapter) {
 
         GameScene mainScene = adapter.create();
         GameRenderer renderer = GameRenderer.getInstance();

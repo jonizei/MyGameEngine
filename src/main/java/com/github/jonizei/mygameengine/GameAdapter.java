@@ -1,5 +1,5 @@
 package com.github.jonizei.mygameengine;
 
-public interface GameEngineAdapter {
+public interface GameAdapter {
     GameScene create();
 }

@@ -9,11 +9,11 @@ public class GameScene {
 
     private int id;
     private String name;
-    private int width;
-    private int height;
+    private double width;
+    private double height;
     private List<GameObject> gameObjects;
 
-    public GameScene(String name, int width, int height) {
+    public GameScene(String name, double width, double height) {
         this.id = idCounter++;
         setName(name);
         setWidth(width);
@@ -33,23 +33,23 @@ public class GameScene {
         return this.name;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         if(width > 0) {
             this.width = width;
         }
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         if(height > 0) {
             this.height = height;
         }
     }
 
-    public int getWidth() {
+    public double getWidth() {
         return this.width;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return this.height;
     }
 

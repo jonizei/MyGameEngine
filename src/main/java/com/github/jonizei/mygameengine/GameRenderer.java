@@ -13,9 +13,12 @@ public class GameRenderer extends Application {
     private Canvas canvas;
     private Stage stage;
     private GameScene gameScene;
+    private Graphics graphics;
+    private boolean isRunning = false;
 
     public GameRenderer() {
         instance = this;
+        isRunning = true;
     }
 
     public synchronized static GameRenderer getInstance() {
@@ -40,17 +43,31 @@ public class GameRenderer extends Application {
         this.stage = stage;
     }
 
+    @Override
+    public void stop() {
+        isRunning = false;
+    }
+
+    public boolean isRunning() {
+        return this.isRunning;
+    }
+
     public void initStage() {
 
         Group root = new Group();
-        Scene scene = new Scene(root, gameScene.getWidth(), gameScene.getHeight());
+        Scene scene = new Scene(root, MetricConverter.toPixels(gameScene.getWidth()), MetricConverter.toPixels(gameScene.getHeight()));
 
-        canvas = new Canvas(gameScene.getWidth(), gameScene.getHeight());
+        canvas = new Canvas(MetricConverter.toPixels(gameScene.getWidth()), MetricConverter.toPixels(gameScene.getHeight()));
+        graphics = new Graphics(canvas.getGraphicsContext2D());
 
         root.getChildren().add(canvas);
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    public Graphics getGraphics() {
+        return this.graphics;
     }
 
     public void setGameScene(GameScene gameScene) {
