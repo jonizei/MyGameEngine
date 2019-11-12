@@ -10,6 +10,8 @@ public class GameRunner implements Runnable {
     private static final long FRAME_SPEED_MILLIS = 16;
     private static final int FRAME_SPEED_NANOS = 6;
 
+    private long lastTime;
+
     public GameRunner() {
 
     }
@@ -23,6 +25,8 @@ public class GameRunner implements Runnable {
             update();
             Platform.runLater(this::render);
 
+            GameEngine.setDeltaTime(countDeltaTime());
+
             try {
                 Thread.sleep(FRAME_SPEED_MILLIS,FRAME_SPEED_NANOS);
             } catch (InterruptedException ex) {
@@ -34,11 +38,11 @@ public class GameRunner implements Runnable {
     }
 
     public void start() {
-        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().forEach(Component::start));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(Component::isEnabled).forEach(Component::start));
     }
 
     public void update() {
-        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().forEach(Component::update));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(Component::isEnabled).forEach(Component::update));
     }
 
     public void render() {
@@ -46,6 +50,11 @@ public class GameRunner implements Runnable {
             List<Renderable> components = (List) gameObject.getComponents().stream().filter(component -> component instanceof Renderable).collect(Collectors.toList());
             components.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));
         });
+    }
+
+    private double countDeltaTime() {
+        long deltaTimeMillis = System.currentTimeMillis() - lastTime;
+        return deltaTimeMillis / 1000;
     }
 
 }

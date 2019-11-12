@@ -7,6 +7,7 @@ public class GameEngine {
     private static GameScene scene;
     private static GameRunner runner;
     private static GameRenderer renderer;
+    private static double deltaTime;
 
     public static void setScene(GameScene s) {
         scene = s;
@@ -31,6 +32,14 @@ public class GameEngine {
 
     public static GameRenderer getRenderer() {
         return renderer;
+    }
+
+    public static double getDeltaTime() {
+        return deltaTime;
+    }
+
+    public static void setDeltaTime(double time) {
+        deltaTime = time;
     }
 
 }

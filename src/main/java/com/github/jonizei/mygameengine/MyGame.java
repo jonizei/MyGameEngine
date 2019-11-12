@@ -11,7 +11,8 @@ public class MyGame implements GameAdapter {
     public GameScene create() {
         GameScene scene = new GameScene("My Scene", 24, 16);
         GameObject gameObject = new GameObject("My Object");
-        gameObject.addComponent(new MyTestComponent());
+        MyTestComponent component = new MyTestComponent();
+        gameObject.addComponent(component);
         scene.addGameObject(gameObject);
         return scene;
     }

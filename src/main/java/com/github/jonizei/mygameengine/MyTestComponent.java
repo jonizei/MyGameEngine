@@ -11,7 +11,7 @@ public class MyTestComponent extends Component implements Renderable {
 
     @Override
     public void update() {
-        System.out.println("Updating");
+        System.out.println("Delta time: " + GameEngine.getDeltaTime());
     }
 
     @Override
