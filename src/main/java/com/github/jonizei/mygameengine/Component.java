@@ -2,7 +2,10 @@ package com.github.jonizei.mygameengine;
 
 public abstract class Component {
 
-    private GameObject gameObject;
+    protected GameObject gameObject;
+    protected Position position;
+    protected Scale scale;
+
     private boolean isEnabled = true;
 
     public abstract void start();
@@ -10,6 +13,8 @@ public abstract class Component {
 
     public void setGameObject(GameObject gameObject) {
         this.gameObject = gameObject;
+        this.position = gameObject.getPosition();
+        this.scale = gameObject.getScale();
     }
 
     public GameObject getGameObject() {

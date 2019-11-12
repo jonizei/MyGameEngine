@@ -9,7 +9,11 @@ public class MyGame implements GameAdapter {
 
     @Override
     public GameScene create() {
-        return new GameScene("My Scene", 24, 16);
+        GameScene scene = new GameScene("My Scene", 24, 16);
+        GameObject gameObject = new GameObject("My Object");
+        gameObject.addComponent(new MyTestComponent());
+        scene.addGameObject(gameObject);
+        return scene;
     }
 
 }

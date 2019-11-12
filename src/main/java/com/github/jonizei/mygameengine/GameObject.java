@@ -12,12 +12,14 @@ public class GameObject {
     private String name;
     private List<Component> components;
     private Position position;
+    private Scale scale;
 
     public GameObject(String name) {
         this.id = idCounter++;
         setName(name);
         components = new ArrayList<>();
         position = new Position();
+        scale = new Scale();
     }
 
     public GameObject(String name, double x, double y) {
@@ -25,6 +27,15 @@ public class GameObject {
         setName(name);
         components = new ArrayList<>();
         position = new Position(x, y);
+        scale = new Scale();
+    }
+
+    public GameObject(String name, double x, double y, double width, double height) {
+        this.id = idCounter++;
+        setName(name);
+        components = new ArrayList<>();
+        position = new Position(x, y);
+        scale = new Scale(width, height);
     }
 
     public int getId() {
@@ -37,6 +48,32 @@ public class GameObject {
 
     public String getName() {
         return this.name;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public void setPosition(double x, double y) {
+        this.position.setX(x);
+        this.position.setY(y);
+    }
+
+    public Position getPosition() {
+        return this.position;
+    }
+
+    public void setScale(Scale scale) {
+        this.scale = scale;
+    }
+
+    public void setScale(double width, double height) {
+        this.scale.setWidth(width);
+        this.scale.setHeight(height);
+    }
+
+    public Scale getScale() {
+        return this.scale;
     }
 
     public List<Component> getComponents() {
