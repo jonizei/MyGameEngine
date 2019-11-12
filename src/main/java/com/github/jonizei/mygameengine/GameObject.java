@@ -89,5 +89,14 @@ public class GameObject {
         return components.stream().filter(component -> c.isInstance(component)).collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
     }
 
+    public <T extends Component> boolean contains(Class<T> c) {
+
+        if(getComponent(c) != null) {
+            return true;
+        }
+
+        return false;
+    }
+
 
 }

@@ -2,6 +2,7 @@ package com.github.jonizei.mygameengine;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameScene {
 
@@ -59,6 +60,14 @@ public class GameScene {
 
     public List<GameObject> getGameObjects() {
         return this.gameObjects;
+    }
+
+    public GameObject getGameObjectByName(String name) {
+        return (GameObject) gameObjects.stream().filter(gameObject -> gameObject.getName().equals(name)).collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
+    }
+
+    public <T extends Component> List<GameObject> getGameObjectsByComponent(Class<T> c) {
+        return (List) gameObjects.stream().filter(gameObject -> gameObject.contains(c)).collect(Collectors.toList());
     }
 
 }

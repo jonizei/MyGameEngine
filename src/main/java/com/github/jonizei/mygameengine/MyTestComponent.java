@@ -2,6 +2,8 @@ package com.github.jonizei.mygameengine;
 
 import javafx.scene.paint.Color;
 
+import java.util.List;
+
 public class MyTestComponent extends Component implements Renderable {
 
     @Override
@@ -11,7 +13,7 @@ public class MyTestComponent extends Component implements Renderable {
 
     @Override
     public void update() {
-        System.out.println("Delta time: " + GameEngine.getDeltaTime());
+        //System.out.println("Delta time: " + GameEngine.getDeltaTime());
     }
 
     @Override
