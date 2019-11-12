@@ -1,6 +1,6 @@
 package com.github.jonizei.mygameengine;
 
-public class Position implements Component {
+public class Position {
 
     private double x;
     private double y;
@@ -13,16 +13,6 @@ public class Position implements Component {
     public Position(double x, double y) {
         setX(x);
         setY(y);
-    }
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void update() {
-
     }
 
     public void setX(double x) {
@@ -39,6 +29,10 @@ public class Position implements Component {
 
     public double getY() {
         return this.y;
+    }
+
+    public String toString() {
+        return "Position{X = " + x + " Y = " + y + "}";
     }
 
 }

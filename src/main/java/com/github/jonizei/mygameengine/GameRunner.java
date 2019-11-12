@@ -43,8 +43,8 @@ public class GameRunner implements Runnable {
 
     public void render() {
         GameEngine.getScene().getGameObjects().stream().forEach(gameObject -> {
-            List<GraphicComponent> graphicComponents = (List) gameObject.getComponents().stream().filter(component -> component instanceof GraphicComponent).collect(Collectors.toList());
-            graphicComponents.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));
+            List<Renderable> components = (List) gameObject.getComponents().stream().filter(component -> component instanceof Renderable).collect(Collectors.toList());
+            components.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));
         });
     }
 

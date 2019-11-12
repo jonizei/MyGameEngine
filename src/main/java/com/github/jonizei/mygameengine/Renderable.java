@@ -1,5 +1,5 @@
 package com.github.jonizei.mygameengine;
 
-public interface GraphicComponent extends Component {
+public interface Renderable {
     void render(Graphics graphics);
 }
