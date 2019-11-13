@@ -46,6 +46,9 @@ public class GameRunner implements Runnable {
     }
 
     public void render() {
+
+        GameEngine.getRenderer().getGraphics().clearRect(0, 0, GameEngine.getScene().getWidth(), GameEngine.getScene().getHeight());
+
         GameEngine.getScene().getGameObjects().stream().forEach(gameObject -> {
             List<Renderable> components = (List) gameObject.getComponents().stream().filter(component -> component instanceof Renderable).collect(Collectors.toList());
             components.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));

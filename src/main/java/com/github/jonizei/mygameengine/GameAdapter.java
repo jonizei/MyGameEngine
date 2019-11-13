@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine;
 
+import java.util.List;
+
 public interface GameAdapter {
-    GameScene create();
+    List<GameScene> create();
 }

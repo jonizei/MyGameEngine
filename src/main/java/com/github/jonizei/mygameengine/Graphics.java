@@ -19,4 +19,9 @@ public class Graphics {
         context.fillRect(MetricConverter.toPixels(x), MetricConverter.toPixels(y), MetricConverter.toPixels(width), MetricConverter.toPixels(height));
     }
 
+    public void clearRect(double x, double y, double width, double height) {
+        context.setFill(Color.WHITE);
+        context.fillRect(MetricConverter.toPixels(x), MetricConverter.toPixels(y), MetricConverter.toPixels(width), MetricConverter.toPixels(height));
+    }
+
 }

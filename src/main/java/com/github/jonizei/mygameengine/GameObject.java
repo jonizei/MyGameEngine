@@ -11,31 +11,27 @@ public class GameObject {
     private int id;
     private String name;
     private List<Component> components;
-    private Position position;
-    private Scale scale;
+    private Transform transform;
 
     public GameObject(String name) {
         this.id = idCounter++;
         setName(name);
         components = new ArrayList<>();
-        position = new Position();
-        scale = new Scale();
+        transform = new Transform();
     }
 
     public GameObject(String name, double x, double y) {
         this.id = idCounter++;
         setName(name);
         components = new ArrayList<>();
-        position = new Position(x, y);
-        scale = new Scale();
+        transform = new Transform(new Position(x, y), new Scale());
     }
 
     public GameObject(String name, double x, double y, double width, double height) {
         this.id = idCounter++;
         setName(name);
         components = new ArrayList<>();
-        position = new Position(x, y);
-        scale = new Scale(width, height);
+        transform = new Transform(new Position(x, y), new Scale(width, height));
     }
 
     public int getId() {
@@ -50,30 +46,8 @@ public class GameObject {
         return this.name;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public void setPosition(double x, double y) {
-        this.position.setX(x);
-        this.position.setY(y);
-    }
-
-    public Position getPosition() {
-        return this.position;
-    }
-
-    public void setScale(Scale scale) {
-        this.scale = scale;
-    }
-
-    public void setScale(double width, double height) {
-        this.scale.setWidth(width);
-        this.scale.setHeight(height);
-    }
-
-    public Scale getScale() {
-        return this.scale;
+    public Transform getTransform() {
+        return transform;
     }
 
     public List<Component> getComponents() {
@@ -86,7 +60,9 @@ public class GameObject {
     }
 
     public <T extends Component> Component getComponent(Class<T> c) {
-        return components.stream().filter(component -> c.isInstance(component)).collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
+        return components.stream()
+                .filter(component -> c.isInstance(component))
+                .collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
     }
 
     public <T extends Component> boolean contains(Class<T> c) {

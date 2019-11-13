@@ -3,8 +3,7 @@ package com.github.jonizei.mygameengine;
 public abstract class Component {
 
     protected GameObject gameObject;
-    protected Position position;
-    protected Scale scale;
+    protected Transform transform;
 
     private boolean isEnabled = true;
 
@@ -13,8 +12,7 @@ public abstract class Component {
 
     public void setGameObject(GameObject gameObject) {
         this.gameObject = gameObject;
-        this.position = gameObject.getPosition();
-        this.scale = gameObject.getScale();
+        this.transform = gameObject.getTransform();
     }
 
     public GameObject getGameObject() {

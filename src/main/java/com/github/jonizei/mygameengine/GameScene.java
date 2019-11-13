@@ -62,6 +62,10 @@ public class GameScene {
         return this.gameObjects;
     }
 
+    public GameObject getGameObjectById(int id) {
+        return (GameObject) gameObjects.stream().filter(gameObject -> gameObject.getId() == id).collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
+    }
+
     public GameObject getGameObjectByName(String name) {
         return (GameObject) gameObjects.stream().filter(gameObject -> gameObject.getName().equals(name)).collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
     }
