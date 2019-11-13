@@ -6,13 +6,14 @@ public class Transform {
     private Scale scale;
 
     public Transform() {
-        setPosition(new Position(0, 0));
         setScale(new Scale(0, 0));
+        setPosition(new Position(0, 0));
     }
 
     public Transform(Position position, Scale scale) {
-        setPosition(position);
         setScale(scale);
+        setPosition(position);
+        setPositionOffsets();
     }
 
     public void setPosition(Position position) {
@@ -29,6 +30,15 @@ public class Transform {
 
     public Scale getScale() {
         return this.scale;
+    }
+
+    private void setPositionOffsets() {
+        if(scale.getWidth() > 0) {
+            this.position.setXOffset(scale.getWidth()/2);
+        }
+        if(scale.getHeight() > 0) {
+            this.position.setYOffset(scale.getHeight()/2);
+        }
     }
 
 }

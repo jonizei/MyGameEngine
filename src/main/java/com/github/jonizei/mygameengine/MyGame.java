@@ -13,7 +13,14 @@ public class MyGame implements GameAdapter {
         GameObject gameObject = new GameObject("My Object", 1, 1, 1, 1);
         MyTestComponent component = new MyTestComponent();
         gameObject.addComponent(component);
+        gameObject.addComponent(new BoxCollider(1.05, 1.05));
         scene.addGameObject(gameObject);
+
+        GameObject gameObject2 = new GameObject("Test Object", 10, 10, 1, 1);
+        gameObject2.addComponent(new SecondTestComponent());
+        gameObject2.addComponent(new BoxCollider(1.05, 1.05));
+        scene.addGameObject(gameObject2);
+
 
         List<GameScene> list = new ArrayList<>();
         list.add(scene);

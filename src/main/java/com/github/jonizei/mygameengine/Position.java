@@ -6,15 +6,21 @@ public class Position {
 
     private double x;
     private double y;
+    private double xOffset;
+    private double yOffset;
 
     public Position() {
         setX(0);
         setY(0);
+        setXOffset(0);
+        setYOffset(0);
     }
 
     public Position(double x, double y) {
         setX(x);
         setY(y);
+        setXOffset(0);
+        setYOffset(0);
     }
 
     public void setX(double x) {
@@ -33,14 +39,42 @@ public class Position {
         return this.y;
     }
 
+    public double getOriginX() {
+        return this.x + xOffset;
+    }
+
+    public double getOriginY() {
+        return this.y + yOffset;
+    }
+
+    public void setXOffset(double offset) {
+        if(offset >= 0) {
+            this.xOffset = offset;
+        }
+    }
+
+    public void setYOffset(double offset) {
+        if(offset >= 0) {
+            this.yOffset = offset;
+        }
+    }
+
+    public double getXOffset() {
+        return this.xOffset;
+    }
+
+    public double getYOffset() {
+        return this.yOffset;
+    }
+
     public String toString() {
-        return "Position{X = " + x + " Y = " + y + "}";
+        return "Position{X = " + getX() + " Y = " + getY() + "}";
     }
 
     public boolean equals(Position position) {
 
-        if(position.getX() > (x - THRESHOLD) && position.getX() < (x + THRESHOLD)) {
-            if(position.getY() > (y - THRESHOLD) && position.getY() < (y + THRESHOLD)) {
+        if(position.getOriginX() > (getOriginX() - THRESHOLD) && position.getOriginX() < (getOriginX() + THRESHOLD)) {
+            if(position.getOriginY() > (getOriginY() - THRESHOLD) && position.getOriginY() < (getOriginY() + THRESHOLD)) {
                 return true;
             }
         }
@@ -49,7 +83,10 @@ public class Position {
     }
 
     public Position clone() {
-        return new Position(getX(), getY());
+        Position clonePosition = new Position(getX(), getY());
+        clonePosition.setXOffset(getXOffset());
+        clonePosition.setYOffset(getYOffset());
+        return clonePosition;
     }
 
     public static Position translate(Position from, Position to, double speed) {
@@ -57,8 +94,8 @@ public class Position {
         Position newPosition = from.clone();
 
         if(!from.equals(to)) {
-            double newX = MetricConverter.toPixels(to.getX()) - MetricConverter.toPixels(from.getX());
-            double newY = MetricConverter.toPixels(to.getY()) - MetricConverter.toPixels(from.getY());
+            double newX = MetricConverter.toPixels(to.getOriginX()) - MetricConverter.toPixels(from.getOriginX());
+            double newY = MetricConverter.toPixels(to.getOriginY()) - MetricConverter.toPixels(from.getOriginY());
             double dist = Math.sqrt(newX*newX + newY*newY);
 
             double velX = (newX/dist)*speed;
@@ -68,6 +105,8 @@ public class Position {
             velY = MetricConverter.toMetrics(velY);
 
             newPosition = new Position(from.getX() + velX, from.getY() + velY);
+            newPosition.setXOffset(from.getXOffset());
+            newPosition.setYOffset(from.getYOffset());
         }
 
         return newPosition;
