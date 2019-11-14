@@ -1,6 +1,6 @@
 package com.github.jonizei.mygameengine.collider;
 
-import com.github.jonizei.mygameengine.Position;
+import com.github.jonizei.mygameengine.gameobject.Position;
 
 /**
  * This class represents a circle collider which is used to detect if
@@ -96,14 +96,14 @@ public class CircleCollider extends Collider{
 
         boolean doesOverlap = false;
 
-        Position[] array = new Position[8];
-
-        double slice = 2 * Math.PI / array.length;
-        for(int i = 0; i < array.length && !doesOverlap; i++) {
-            double angle = slice * i;
-            double newX = transform.getPosition().getOriginX() + radius * Math.cos(angle);
-            double newY = transform.getPosition().getOriginY() + radius * Math.sin(angle);
-            doesOverlap = collider.overlaps(new Position(newX, newY));
+        if(!equals(collider)) {
+            double slice = 2 * Math.PI / 8;
+            for(int i = 0; i < 8 && !doesOverlap; i++) {
+                double angle = slice * i;
+                double newX = transform.getPosition().getOriginX() + radius * Math.cos(angle);
+                double newY = transform.getPosition().getOriginY() + radius * Math.sin(angle);
+                doesOverlap = collider.overlaps(new Position(newX, newY));
+            }
         }
 
         return doesOverlap;

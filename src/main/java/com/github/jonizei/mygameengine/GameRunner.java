@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.gameobject.Component;
+import com.github.jonizei.mygameengine.graphics.Renderable;
 import javafx.application.Platform;
 import java.util.List;
 import java.util.stream.Collectors;

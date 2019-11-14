@@ -1,5 +1,6 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.graphics;
 
+import com.github.jonizei.mygameengine.utils.MetricConverter;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 

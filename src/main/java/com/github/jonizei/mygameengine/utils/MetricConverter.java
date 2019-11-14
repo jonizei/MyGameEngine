@@ -1,4 +1,4 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.utils;
 
 /**
  * This class converts pixels to metrics and vice versa

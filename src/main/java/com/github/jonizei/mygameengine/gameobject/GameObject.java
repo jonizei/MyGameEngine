@@ -1,4 +1,4 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.gameobject;
 
 import java.util.ArrayList;
 import java.util.List;

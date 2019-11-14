@@ -1,4 +1,6 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.gameobject;
+
+import com.github.jonizei.mygameengine.utils.MetricConverter;
 
 /**
  * This class reperesents position in the screen

@@ -1,4 +1,7 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.gamescene;
+
+import com.github.jonizei.mygameengine.gameobject.Component;
+import com.github.jonizei.mygameengine.gameobject.GameObject;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,8 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.graphics.Graphics;
+import com.github.jonizei.mygameengine.utils.MetricConverter;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

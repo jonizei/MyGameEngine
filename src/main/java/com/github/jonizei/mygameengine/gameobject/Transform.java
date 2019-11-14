@@ -1,4 +1,4 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.gameobject;
 
 /**
  * This class holds position and scale

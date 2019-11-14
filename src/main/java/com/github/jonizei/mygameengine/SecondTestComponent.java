@@ -1,6 +1,9 @@
 package com.github.jonizei.mygameengine;
 
 import com.github.jonizei.mygameengine.collider.CircleCollider;
+import com.github.jonizei.mygameengine.gameobject.Component;
+import com.github.jonizei.mygameengine.graphics.Renderable;
+import com.github.jonizei.mygameengine.graphics.Graphics;
 import javafx.scene.paint.Color;
 
 public class SecondTestComponent extends Component implements Renderable {
@@ -14,10 +17,6 @@ public class SecondTestComponent extends Component implements Renderable {
 
     @Override
     public void update() {
-
-        if(collider.collides()) {
-            System.out.println("Second collides");
-        }
 
     }
 

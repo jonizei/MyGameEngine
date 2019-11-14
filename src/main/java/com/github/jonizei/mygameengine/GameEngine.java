@@ -1,5 +1,6 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.gamescene.GameScene;
 import javafx.application.Platform;
 
 import java.util.List;

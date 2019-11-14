@@ -1,7 +1,7 @@
 package com.github.jonizei.mygameengine.collider;
 
-import com.github.jonizei.mygameengine.Position;
-import com.github.jonizei.mygameengine.Scale;
+import com.github.jonizei.mygameengine.gameobject.Position;
+import com.github.jonizei.mygameengine.gameobject.Scale;
 
 /**
  * This class represents a square collider which is used to detect if
@@ -86,6 +86,7 @@ public class BoxCollider extends Collider {
      */
     @Override
     public void update() {
+        calculateCorners();
         checkCollisions();
     }
 
@@ -133,8 +134,10 @@ public class BoxCollider extends Collider {
     @Override
     public boolean isCollision(Collider collider) {
 
-        if(collider.overlaps(topLeft) || collider.overlaps(bottomLeft) || collider.overlaps(topRight) || collider.overlaps(bottomRight)) {
-            return true;
+        if(!equals(collider)) {
+            if(collider.overlaps(topLeft) || collider.overlaps(bottomLeft) || collider.overlaps(topRight) || collider.overlaps(bottomRight)) {
+                return true;
+            }
         }
 
         return false;

@@ -1,9 +1,9 @@
 package com.github.jonizei.mygameengine.collider;
 
-import com.github.jonizei.mygameengine.Component;
+import com.github.jonizei.mygameengine.gameobject.Component;
 import com.github.jonizei.mygameengine.GameEngine;
-import com.github.jonizei.mygameengine.GameObject;
-import com.github.jonizei.mygameengine.Position;
+import com.github.jonizei.mygameengine.gameobject.GameObject;
+import com.github.jonizei.mygameengine.gameobject.Position;
 
 import java.util.List;
 import java.util.stream.Collectors;

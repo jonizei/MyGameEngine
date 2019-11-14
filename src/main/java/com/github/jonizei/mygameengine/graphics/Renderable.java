@@ -1,4 +1,6 @@
-package com.github.jonizei.mygameengine;
+package com.github.jonizei.mygameengine.graphics;
+
+import com.github.jonizei.mygameengine.graphics.Graphics;
 
 /**
  * This class enables that component can be rendered

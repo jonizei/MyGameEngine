@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.gamescene.GameScene;
+
 import java.util.List;
 
 /**

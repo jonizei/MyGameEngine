@@ -1,22 +1,24 @@
 package com.github.jonizei.mygameengine;
 
-import com.github.jonizei.mygameengine.collider.BoxCollider;
+import com.github.jonizei.mygameengine.collider.CircleCollider;
+import com.github.jonizei.mygameengine.gameobject.Component;
+import com.github.jonizei.mygameengine.gameobject.Position;
+import com.github.jonizei.mygameengine.graphics.Renderable;
+import com.github.jonizei.mygameengine.graphics.Graphics;
 import javafx.scene.paint.Color;
 
 public class MyTestComponent extends Component implements Renderable {
 
-    private BoxCollider collider;
+    private CircleCollider collider;
 
     @Override
     public void start() {
         System.out.println("Started");
-        collider = (BoxCollider) getComponent(BoxCollider.class);
+        collider = (CircleCollider) getComponent(CircleCollider.class);
     }
 
     @Override
     public void update() {
-
-        System.out.println(GameEngine.getDeltaTime());
 
         Position movement = Position.translate(transform.getPosition(), new Position(5, 1), 1);
 
