@@ -4,18 +4,33 @@ import javafx.application.Platform;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class handles the execution of all the components
+ */
 public class GameRunner implements Runnable {
 
-    // 60 FRAMES PER SECOND
+    /**
+     * The time that thread sleeps every loop in milliseconds
+     */
     private static final long FRAME_SPEED_MILLIS = 16;
+
+
+    /**
+     * The time that thread sleeps every loop in nanoseconds
+     */
     private static final int FRAME_SPEED_NANOS = 6;
 
+    /**
+     * Holds the time when last loop was executed
+     */
     private long lastTime;
 
-    public GameRunner() {
-
-    }
-
+    /**
+     * Method required by Runnable interface
+     *
+     * Handles the execution of all components
+     *
+     */
     @Override
     public void run() {
 
@@ -37,14 +52,23 @@ public class GameRunner implements Runnable {
 
     }
 
+    /**
+     * Calls start method from every component if its enabled
+     */
     public void start() {
         GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(Component::isEnabled).forEach(Component::start));
     }
 
+    /**
+     * Calls update method from every component if its enabled
+     */
     public void update() {
         GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(Component::isEnabled).forEach(Component::update));
     }
 
+    /**
+     * Clears the window and then calls render method from every component that implements Renderable interface
+     */
     public void render() {
 
         GameEngine.getRenderer().getGraphics().clearRect(0, 0, GameEngine.getScene().getWidth(), GameEngine.getScene().getHeight());
@@ -55,9 +79,15 @@ public class GameRunner implements Runnable {
         });
     }
 
-    private double countDeltaTime() {
+    /**
+     * Counts elapsed time between each loop and returns it as seconds
+     *
+     * @return Elapsed time as seconds
+     */
+    private float countDeltaTime() {
         long deltaTimeMillis = System.currentTimeMillis() - lastTime;
-        return deltaTimeMillis / 1000;
+        lastTime = System.currentTimeMillis();
+        return (deltaTimeMillis / 1000F) % 60;
     }
 
 }

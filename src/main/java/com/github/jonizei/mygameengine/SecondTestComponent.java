@@ -1,14 +1,15 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.collider.CircleCollider;
 import javafx.scene.paint.Color;
 
 public class SecondTestComponent extends Component implements Renderable {
 
-    private BoxCollider collider;
+    private CircleCollider collider;
 
     @Override
     public void start() {
-        collider = (BoxCollider) getComponent(BoxCollider.class);
+        collider = (CircleCollider) getComponent(CircleCollider.class);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.github.jonizei.mygameengine;
 
-import javafx.scene.paint.Color;
+import com.github.jonizei.mygameengine.collider.BoxCollider;
+import com.github.jonizei.mygameengine.collider.CircleCollider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,9 @@ public class MyGame implements GameAdapter {
         gameObject.addComponent(new BoxCollider(1.05, 1.05));
         scene.addGameObject(gameObject);
 
-        GameObject gameObject2 = new GameObject("Test Object", 10, 10, 1, 1);
+        GameObject gameObject2 = new GameObject("Test Object", 5, 1, 1, 1);
         gameObject2.addComponent(new SecondTestComponent());
-        gameObject2.addComponent(new BoxCollider(1.05, 1.05));
+        gameObject2.addComponent(new CircleCollider(1));
         scene.addGameObject(gameObject2);
 
 

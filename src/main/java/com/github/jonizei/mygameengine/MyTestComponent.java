@@ -1,5 +1,6 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.collider.BoxCollider;
 import javafx.scene.paint.Color;
 
 public class MyTestComponent extends Component implements Renderable {
@@ -15,7 +16,9 @@ public class MyTestComponent extends Component implements Renderable {
     @Override
     public void update() {
 
-        Position movement = Position.translate(transform.getPosition(), new Position(10, 10), 1);
+        System.out.println(GameEngine.getDeltaTime());
+
+        Position movement = Position.translate(transform.getPosition(), new Position(5, 1), 1);
 
         if(!collider.collides()) {
             transform.setPosition(movement);
