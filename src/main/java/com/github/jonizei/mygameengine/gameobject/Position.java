@@ -70,7 +70,7 @@ public class Position {
      * @param x X value of position
      */
     public void setX(double x) {
-        this.x = x;
+        this.x = x - xOffset;
     }
 
     /**
@@ -79,7 +79,7 @@ public class Position {
      * @param y Y value of the position
      */
     public void setY(double y) {
-        this.y = y;
+        this.y = y - yOffset;
     }
 
     /**
