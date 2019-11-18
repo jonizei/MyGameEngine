@@ -13,8 +13,8 @@ public class MyGame implements GameAdapter {
     public List<GameScene> create() {
         GameScene scene = new GameScene("My Scene", 24, 16);
         GameObject gameObject = new GameObject("My Object", 1, 1, 1, 1);
-        MyTestComponent component = new MyTestComponent();
-        gameObject.addComponent(component);
+
+        gameObject.addComponent(new MyTestComponent());
         gameObject.addComponent(new CircleCollider(0.5));
         scene.addGameObject(gameObject);
 
