@@ -18,6 +18,8 @@ public class Transform {
      */
     private Scale scale;
 
+    private Rotation rotation;
+
     /**
      * Constructor of Transform
      *
@@ -26,6 +28,7 @@ public class Transform {
     public Transform() {
         setScale(new Scale(0, 0));
         setPosition(new Position(0, 0));
+        setRotation(new Rotation(0));
     }
 
     /**
@@ -36,9 +39,10 @@ public class Transform {
      * @param position Position object
      * @param scale Scale object
      */
-    public Transform(Position position, Scale scale) {
+    public Transform(Position position, Scale scale, Rotation rotation) {
         setScale(scale);
         setPosition(position);
+        setRotation(rotation);
         setPositionOffsets();
     }
 
@@ -76,6 +80,14 @@ public class Transform {
      */
     public Scale getScale() {
         return this.scale;
+    }
+
+    public void setRotation(Rotation rotation) {
+        this.rotation = rotation;
+    }
+
+    public Rotation getRotation() {
+        return this.rotation;
     }
 
     /**

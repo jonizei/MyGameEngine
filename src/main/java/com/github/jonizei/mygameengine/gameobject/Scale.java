@@ -1,5 +1,8 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.GameEngine;
+import com.github.jonizei.mygameengine.utils.MetricConverter;
+
 /**
  * This class holds width and height values
  *
@@ -7,6 +10,8 @@ package com.github.jonizei.mygameengine.gameobject;
  * @version 2019-11-14
  */
 public class Scale {
+
+    private final double THRESHOLD = 0.07;
 
     /**
      * Value of width
@@ -79,6 +84,56 @@ public class Scale {
      */
     public double getHeight() {
         return this.height;
+    }
+
+    public String toString() {
+        return "Scale{Width = " + getWidth() + ", Height = " + getHeight() + "}";
+    }
+
+    public boolean equals(Scale scale) {
+
+        if(getWidth() > (scale.getWidth() - THRESHOLD) && getWidth() < (scale.getWidth() + THRESHOLD)) {
+            if(getHeight() > (scale.getHeight() - THRESHOLD) && getHeight() < (scale.getHeight() + THRESHOLD)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public Scale clone() {
+        return new Scale(getWidth(), getHeight());
+    }
+
+    public static Scale scaleTo(Scale begin, Scale end, long duration) {
+
+        Scale newScale = begin.clone();
+
+        if(!begin.equals(end)) {
+
+            double durationInSeconds = duration / 1000;
+
+            double wDist = MetricConverter.toPixels(end.getWidth()) - MetricConverter.toPixels(begin.getWidth());
+            double hDist = MetricConverter.toPixels(end.getHeight()) - MetricConverter.toPixels(begin.getHeight());
+
+            double newWidth = (MetricConverter.toPixels(begin.getWidth()) + wDist)/(durationInSeconds * 59);
+            double newHeight = (MetricConverter.toPixels(begin.getHeight()) + hDist)/(durationInSeconds * 59);
+
+            newWidth = MetricConverter.toMetrics(newWidth);
+            newHeight = MetricConverter.toMetrics(newHeight);
+
+            newScale = new Scale(begin.getWidth() + newWidth, begin.getHeight() + newHeight);
+
+            if(newScale.getWidth() > end.getWidth() && newScale.getHeight() > end.getHeight()) {
+                newScale = end;
+            }
+
+        }
+        else {
+            newScale = end;
+        }
+
+        return newScale;
     }
 
 }

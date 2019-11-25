@@ -164,7 +164,7 @@ public class Position {
      * @return Position as a String
      */
     public String toString() {
-        return "Position{X = " + getX() + " Y = " + getY() + "}";
+        return "Position{X = " + getX() + ", Y = " + getY() + "}";
     }
 
     /**
@@ -222,6 +222,9 @@ public class Position {
             newPosition = new Position(from.getX() + velX, from.getY() + velY);
             newPosition.setXOffset(from.getXOffset());
             newPosition.setYOffset(from.getYOffset());
+        }
+        else {
+            newPosition = to;
         }
 
         return newPosition;

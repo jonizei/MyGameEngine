@@ -64,7 +64,7 @@ public class GameObject {
         this.id = idCounter++;
         setName(name);
         components = new ArrayList<>();
-        transform = new Transform(new Position(x, y), new Scale());
+        transform = new Transform(new Position(x, y), new Scale(), new Rotation(0));
     }
 
     /**
@@ -82,7 +82,7 @@ public class GameObject {
         this.id = idCounter++;
         setName(name);
         components = new ArrayList<>();
-        transform = new Transform(new Position(x, y), new Scale(width, height));
+        transform = new Transform(new Position(x, y), new Scale(width, height), new Rotation(0));
     }
 
     /**
