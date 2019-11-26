@@ -40,6 +40,8 @@ public class GameEngine {
      */
     private static float deltaTime;
 
+    private static String filePath;
+
     /**
      * Sets the active GameScene
      *
@@ -66,6 +68,14 @@ public class GameEngine {
      */
     public static void setRenderer(GameRenderer r) {
         renderer = r;
+    }
+
+    public static void setFilePath(String f) {
+        filePath = f;
+    }
+
+    public static String getFilePath() {
+        return filePath;
     }
 
     /**

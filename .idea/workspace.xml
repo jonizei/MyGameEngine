@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="628b02df-c96d-4f5a-8afc-5964f1008811" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/App.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Rotation.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/MyTestComponent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/SecondTestComponent.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/App.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/App.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Shape.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Texture.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/GameEngine.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/GameEngine.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/GameLauncher.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/GameLauncher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/MyComponent.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/MyComponent.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/MyGame.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/MyGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/gameobject/Position.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/gameobject/Position.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/gameobject/Scale.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/gameobject/Scale.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/gameobject/Transform.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/gameobject/Transform.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/graphics/Graphics.class" afterPath="$PROJECT_DIR$/target/classes/com/github/jonizei/mygameengine/graphics/Graphics.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Scale.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Scale.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java" />
     </list>
@@ -30,45 +30,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Scale.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Scale.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="116" column="115" lean-forward="true" selection-start-line="116" selection-start-column="115" selection-end-line="116" selection-end-column="115" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameRunner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Graphics.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java">
+      <file leaf-file-name="Texture.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Texture.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="48" column="31" lean-forward="true" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+              <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#912#913#0" expanded="true" />
+                <element signature="e#946#947#0" expanded="true" />
+                <element signature="e#1297#1298#0" expanded="true" />
+                <element signature="e#1330#1331#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Shape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#504#505#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+                <element signature="e#576#577#0" expanded="true" />
+                <element signature="e#607#608#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#831#832#0" expanded="true" />
+                <element signature="e#873#874#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyGame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,72 +78,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyComponent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java">
+      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="26" column="83" lean-forward="true" selection-start-line="26" selection-start-column="83" selection-end-line="26" selection-end-column="83" />
+            <state relative-caret-position="289">
+              <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1560#1561#0" expanded="true" />
+                <element signature="e#1588#1589#0" expanded="true" />
+                <element signature="e#1630#1631#0" expanded="true" />
+                <element signature="e#1661#1662#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameRenderer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="126" column="6" lean-forward="true" selection-start-line="126" selection-start-column="6" selection-end-line="126" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="84" column="94" lean-forward="false" selection-start-line="84" selection-start-column="94" selection-end-line="84" selection-end-column="94" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rotation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Rotation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="58" column="59" lean-forward="false" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
-              <folding>
-                <element signature="e#222#223#0" expanded="true" />
-                <element signature="e#253#254#0" expanded="true" />
-                <element signature="e#421#422#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#649#650#0" expanded="true" />
-                <element signature="e#689#690#0" expanded="true" />
-                <element signature="e#743#744#0" expanded="true" />
-                <element signature="e#787#788#0" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#885#886#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1187#1188#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transform.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java">
+      <file leaf-file-name="GameLauncher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="44" column="30" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-              <folding>
-                <element signature="e#1641#1642#0" expanded="true" />
-                <element signature="e#1681#1682#0" expanded="true" />
-                <element signature="e#1718#1719#0" expanded="true" />
-                <element signature="e#1754#1755#0" expanded="true" />
-              </folding>
+              <caret line="23" column="78" lean-forward="false" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,8 +106,30 @@
       <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="226" column="29" lean-forward="false" selection-start-line="226" selection-start-column="29" selection-end-line="226" selection-end-column="29" />
+            <state relative-caret-position="311">
+              <caret line="223" column="54" lean-forward="false" selection-start-line="223" selection-start-column="54" selection-end-line="223" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Graphics.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-431">
+              <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="21" column="89" lean-forward="false" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
               <folding />
             </state>
           </provider>
@@ -185,10 +164,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/CircleCollider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/Collider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/Component.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameRenderer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameRunner.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameScene.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/Graphics.java" />
@@ -207,15 +184,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Renderable.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gamescene/GameScene.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/App.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Scale.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Rotation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Circle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Oval.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Rectangle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Sprite.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Texture.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Shape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java" />
       </list>
     </option>
   </component>
@@ -247,10 +232,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -283,6 +265,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mygameengine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mygameengine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyGameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mygameengine" type="462c0819:PsiDirectoryNode" />
+              <item name="collider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mygameengine" type="b2602c69:ProjectViewProjectNode" />
@@ -327,6 +318,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -475,12 +469,13 @@
       <workItem from="1574102563274" duration="692000" />
       <workItem from="1574175297699" duration="1925000" />
       <workItem from="1574347020184" duration="9783000" />
-      <workItem from="1574693063024" duration="8442000" />
+      <workItem from="1574693063024" duration="13079000" />
+      <workItem from="1574760095136" duration="6370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99253000" />
+    <option name="totallyTimeSpent" value="110260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -501,6 +496,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2078125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -512,7 +508,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -555,41 +550,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gamescene/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="65" column="176" lean-forward="true" selection-start-line="65" selection-start-column="176" selection-end-line="65" selection-end-column="176" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="50" lean-forward="false" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="54" lean-forward="true" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -684,35 +644,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/Behaviour.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/collider/Collider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="51" column="43" lean-forward="true" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/collider/BoxCollider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="116" column="48" lean-forward="false" selection-start-line="116" selection-start-column="48" selection-end-line="116" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -729,13 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -780,68 +715,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="226" column="29" lean-forward="false" selection-start-line="226" selection-start-column="29" selection-end-line="226" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Scale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="116" column="115" lean-forward="true" selection-start-line="116" selection-start-column="115" selection-end-line="116" selection-end-column="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="44" column="30" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-          <folding>
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1681#1682#0" expanded="true" />
-            <element signature="e#1718#1719#0" expanded="true" />
-            <element signature="e#1754#1755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="84" column="94" lean-forward="false" selection-start-line="84" selection-start-column="94" selection-end-line="84" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="44" lean-forward="false" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -853,41 +731,178 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/collider/Collider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="51" column="43" lean-forward="true" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/collider/BoxCollider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="116" column="48" lean-forward="false" selection-start-line="116" selection-start-column="48" selection-end-line="116" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Rotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Transform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="58" column="33" lean-forward="false" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+          <folding>
+            <element signature="e#1165#1166#0" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1366#1367#0" expanded="true" />
+            <element signature="e#1416#1417#0" expanded="true" />
+            <element signature="e#1456#1457#0" expanded="true" />
+            <element signature="e#1500#1501#0" expanded="true" />
+            <element signature="e#1536#1537#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Scale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="64" column="42" lean-forward="false" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="84" column="97" lean-forward="false" selection-start-line="84" selection-start-column="97" selection-end-line="84" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="21" column="89" lean-forward="false" selection-start-line="21" selection-start-column="89" selection-end-line="21" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="42" column="35" lean-forward="true" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <folding>
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="e#1588#1589#0" expanded="true" />
+            <element signature="e#1630#1631#0" expanded="true" />
+            <element signature="e#1661#1662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Oval.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/GameLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="78" lean-forward="false" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="223" column="54" lean-forward="false" selection-start-line="223" selection-start-column="54" selection-end-line="223" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Graphics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="48" column="31" lean-forward="true" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        <state relative-caret-position="-431">
+          <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/gameobject/Rotation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="58" column="59" lean-forward="false" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
+        <state relative-caret-position="102">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
           <folding>
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#649#650#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/graphics/Texture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="26" column="83" lean-forward="true" selection-start-line="26" selection-start-column="83" selection-end-line="26" selection-end-column="83" />
+        <state relative-caret-position="323">
+          <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/jonizei/mygameengine/MyGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

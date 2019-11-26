@@ -20,6 +20,8 @@ public class Transform {
 
     private Rotation rotation;
 
+    private double radius;
+
     /**
      * Constructor of Transform
      *
@@ -29,6 +31,7 @@ public class Transform {
         setScale(new Scale(0, 0));
         setPosition(new Position(0, 0));
         setRotation(new Rotation(0));
+        setRadius(0);
     }
 
     /**
@@ -43,6 +46,7 @@ public class Transform {
         setScale(scale);
         setPosition(position);
         setRotation(rotation);
+        setRadius(0);
         setPositionOffsets();
     }
 
@@ -64,6 +68,14 @@ public class Transform {
         this.scale = scale;
     }
 
+    public void setRotation(Rotation rotation) {
+        this.rotation = rotation;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
     /**
      * Returns position value
      *
@@ -82,24 +94,27 @@ public class Transform {
         return this.scale;
     }
 
-    public void setRotation(Rotation rotation) {
-        this.rotation = rotation;
-    }
-
     public Rotation getRotation() {
         return this.rotation;
     }
 
+    public double getRadius() {
+        return this.radius;
+    }
+
     /**
      * Initializes offset for position using width and height from scale object
+     * if radius is bigger than zero then it will be used instead of scale object
      */
     private void setPositionOffsets() {
+
         if(scale.getWidth() > 0) {
             this.position.setXOffset(scale.getWidth()/2);
         }
         if(scale.getHeight() > 0) {
             this.position.setYOffset(scale.getHeight()/2);
         }
+
     }
 
 }

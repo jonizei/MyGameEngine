@@ -222,6 +222,7 @@ public class Position {
             newPosition = new Position(from.getX() + velX, from.getY() + velY);
             newPosition.setXOffset(from.getXOffset());
             newPosition.setYOffset(from.getYOffset());
+
         }
         else {
             newPosition = to;
