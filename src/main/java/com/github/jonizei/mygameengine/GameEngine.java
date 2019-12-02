@@ -40,6 +40,9 @@ public class GameEngine {
      */
     private static float deltaTime;
 
+    /**
+     * Path to the resources directory
+     */
     private static String filePath;
 
     /**
@@ -70,10 +73,20 @@ public class GameEngine {
         renderer = r;
     }
 
+    /**
+     * Sets path to the resources directory
+     *
+     * @param f path to resources directory
+     */
     public static void setFilePath(String f) {
         filePath = f;
     }
 
+    /**
+     * Returns path to resources directory
+     *
+     * @return path to resources directory
+     */
     public static String getFilePath() {
         return filePath;
     }

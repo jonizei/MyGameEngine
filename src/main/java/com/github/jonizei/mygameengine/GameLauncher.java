@@ -12,7 +12,7 @@ public class GameLauncher {
      * Constructor of GameLauncher
      *
      * Initializes the GameRenderer, GameRunner and List of GameScenes to GameEngine class
-     * and then starts the GameRenderer in a new thread
+     * and then starts the GameRenderer in a new thread. Also initializes path to resources directory
      *
      * @param adapter Class which implements GameAdapter interface
      */

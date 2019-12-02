@@ -33,9 +33,10 @@ public class Graphics {
     }
 
     /**
-     * Draws rectangle with given width, height and color to given position
+     * Draws rectangle using given transform and color
      *
-     *
+     * @param transform Transform-object
+     * @param color Color of the rectangle
      */
     public void drawRect(Transform transform, Color color) {
 
@@ -77,6 +78,12 @@ public class Graphics {
         context.fillRect(MetricConverter.toPixels(x), MetricConverter.toPixels(y), MetricConverter.toPixels(width), MetricConverter.toPixels(height));
     }
 
+    /**
+     * Draws oval using given transform and color
+     *
+     * @param transform Transform-object
+     * @param color color of the oval
+     */
     public void drawOval(Transform transform, Color color) {
 
         context.save();
@@ -106,6 +113,12 @@ public class Graphics {
 
     }
 
+    /**
+     * Draw image using given transform and image
+     *
+     * @param transform Transform-object
+     * @param image Image to be drawn
+     */
     public void drawImage(Transform transform, Image image) {
 
         context.save();
