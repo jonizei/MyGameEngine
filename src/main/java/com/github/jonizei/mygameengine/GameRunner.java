@@ -65,7 +65,7 @@ public class GameRunner implements Runnable {
      * Calls update method from every component if its enabled
      */
     public void update() {
-        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(Component::isEnabled).forEach(Component::update));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(component -> component != null).filter(Component::isEnabled).forEach(Component::update));
     }
 
     /**
@@ -76,7 +76,7 @@ public class GameRunner implements Runnable {
         GameEngine.getRenderer().getGraphics().clearRect(0, 0, GameEngine.getScene().getWidth(), GameEngine.getScene().getHeight());
 
         GameEngine.getScene().getGameObjects().stream().forEach(gameObject -> {
-            List<Renderable> components = (List) gameObject.getComponents().stream().filter(component -> component instanceof Renderable).collect(Collectors.toList());
+            List<Renderable> components = (List) gameObject.getComponents().stream().filter(component -> component != null).filter(component -> component instanceof Renderable).collect(Collectors.toList());
             components.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));
         });
     }

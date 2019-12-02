@@ -7,10 +7,14 @@ import com.github.jonizei.mygameengine.utils.MetricConverter;
  * This class holds width and height values
  *
  * @author Joni Koskinen
- * @version 2019-11-14
+ * @version 2019-11-26
  */
 public class Scale {
 
+    /**
+     * Threshold which widens the width and height
+     * When comparing to another scale-object they don't need to be exact the same to be equal
+     */
     private final double THRESHOLD = 0.07;
 
     /**
@@ -86,10 +90,21 @@ public class Scale {
         return this.height;
     }
 
+    /**
+     * Returns Scale as a String
+     *
+     * @return Scale as a String
+     */
     public String toString() {
         return "Scale{Width = " + getWidth() + ", Height = " + getHeight() + "}";
     }
 
+    /**
+     * Compares Scale-objects together and checks if they match
+     *
+     * @param scale Scale-object to be compared with
+     * @return boolean value which tells if the match
+     */
     public boolean equals(Scale scale) {
 
         if(getWidth() > (scale.getWidth() - THRESHOLD) && getWidth() < (scale.getWidth() + THRESHOLD)) {
@@ -101,10 +116,23 @@ public class Scale {
         return false;
     }
 
+    /**
+     * Creates new Scale instance using values from this instance
+     *
+     * @return new Scale instance
+     */
     public Scale clone() {
         return new Scale(getWidth(), getHeight());
     }
 
+    /**
+     * Calculates new Scale using start size and end size and duration
+     *
+     * @param begin Scale-object where to start
+     * @param end Scale-object where to stop
+     * @param duration Duration how long the scaling should take
+     * @return Scale which is the next size of the object
+     */
     public static Scale scaleTo(Scale begin, Scale end, long duration) {
 
         Scale newScale = begin.clone();
@@ -116,8 +144,8 @@ public class Scale {
             double wDist = MetricConverter.toPixels(end.getWidth()) - MetricConverter.toPixels(begin.getWidth());
             double hDist = MetricConverter.toPixels(end.getHeight()) - MetricConverter.toPixels(begin.getHeight());
 
-            double newWidth = (MetricConverter.toPixels(begin.getWidth()) + wDist)/(durationInSeconds * 59);
-            double newHeight = (MetricConverter.toPixels(begin.getHeight()) + hDist)/(durationInSeconds * 59);
+            double newWidth = wDist / (durationInSeconds * 59);
+            double newHeight = hDist / (durationInSeconds * 59);
 
             newWidth = MetricConverter.toMetrics(newWidth);
             newHeight = MetricConverter.toMetrics(newHeight);

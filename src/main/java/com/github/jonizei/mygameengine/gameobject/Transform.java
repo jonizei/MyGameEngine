@@ -18,8 +18,14 @@ public class Transform {
      */
     private Scale scale;
 
+    /**
+     * Rotation object
+     */
     private Rotation rotation;
 
+    /**
+     * Radius of the object
+     */
     private double radius;
 
     /**
@@ -68,10 +74,20 @@ public class Transform {
         this.scale = scale;
     }
 
+    /**
+     * Sets value for rotation
+     *
+     * @param rotation Value of rotation
+     */
     public void setRotation(Rotation rotation) {
         this.rotation = rotation;
     }
 
+    /**
+     * Sets value for radius
+     *
+     * @param radius Value of radius
+     */
     public void setRadius(double radius) {
         this.radius = radius;
     }
@@ -94,10 +110,20 @@ public class Transform {
         return this.scale;
     }
 
+    /**
+     * Returns rotation value
+     *
+     * @return Rotation value
+     */
     public Rotation getRotation() {
         return this.rotation;
     }
 
+    /**
+     * Returns radius value
+     *
+     * @return radius value
+     */
     public double getRadius() {
         return this.radius;
     }

@@ -148,9 +148,16 @@ public class GameObject {
      * @return Component which is an instance of given class
      */
     public <T extends Component> Component getComponent(Class<T> c) {
-        return components.stream()
+
+        List<Component> cList = components.stream()
                 .filter(component -> c.isInstance(component))
-                .collect(Collectors.collectingAndThen(Collectors.toList(), list -> list.get(0)));
+                .collect(Collectors.toList());
+
+        if(cList.size() > 0) {
+            return cList.get(0);
+        }
+
+        return null;
     }
 
     /**

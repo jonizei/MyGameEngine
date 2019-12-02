@@ -21,7 +21,7 @@ public class GameLauncher {
         GameEngine.setRenderer(GameRenderer.getInstance());
         GameEngine.setSceneList(adapter.create());
         GameEngine.setRunner(new GameRunner());
-        GameEngine.setFilePath(System.getProperty("user.dir") + "/resources");
+        GameEngine.setFilePath(System.getProperty("user.dir") + "/resources/");
         new Thread(GameEngine.getRunner()).start();
 
     }
