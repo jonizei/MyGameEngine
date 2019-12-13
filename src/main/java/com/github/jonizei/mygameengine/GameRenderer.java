@@ -125,6 +125,9 @@ public class GameRenderer extends Application {
         scene.setOnKeyReleased(inputEventHandler);
         scene.setOnMousePressed(mouseEventHandler);
         scene.setOnMouseReleased(mouseEventHandler);
+        scene.setOnMouseClicked(mouseEventHandler);
+        scene.setOnMouseDragged(mouseEventHandler);
+        scene.setOnMouseMoved(mouseEventHandler);
 
         canvas = new Canvas(MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
         graphics = new Graphics(canvas.getGraphicsContext2D());

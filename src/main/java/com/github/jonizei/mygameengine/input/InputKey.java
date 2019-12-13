@@ -11,6 +11,7 @@ public class InputKey {
 
     private boolean isPressed = false;
     private boolean isReleased = true;
+    private boolean isClicked = false;
 
     public InputKey(String keyName, KeyCode keyCode) {
         setKeyName(keyName);
@@ -48,7 +49,7 @@ public class InputKey {
 
     public void setPressed(boolean value) {
         this.isPressed = value;
-        this.isReleased = false;
+        this.isReleased = !value;
     }
 
     public boolean isPressed() {
@@ -57,11 +58,18 @@ public class InputKey {
 
     public void setReleased(boolean value) {
         this.isReleased = value;
-        this.isPressed = false;
+        this.isPressed = !value;
     }
 
     public boolean isReleased() {
         return this.isReleased;
     }
 
+    public void setClicked(boolean value) {
+        this.isClicked = value;
+    }
+
+    public boolean isClicked() {
+        return this.isClicked;
+    }
 }

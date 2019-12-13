@@ -9,7 +9,7 @@ import java.util.List;
 public class InputSettings {
 
     private List<InputKey> inputKeyList;
-    private List<InputKey> mouseKeyList;
+    private List<MouseKey> mouseKeyList;
 
     public InputSettings() {
         inputKeyList = new ArrayList<>();
@@ -20,7 +20,7 @@ public class InputSettings {
         return this.inputKeyList;
     }
 
-    public List<InputKey> getMouseKeyList() {
+    public List<MouseKey> getMouseKeyList() {
         return this.mouseKeyList;
     }
 
@@ -29,7 +29,7 @@ public class InputSettings {
     }
 
     public void addMouseKey(String keyName, MouseButton mouseButton) {
-        mouseKeyList.add(new InputKey(keyName, mouseButton));
+        mouseKeyList.add(new MouseKey(keyName, mouseButton));
     }
 
 }

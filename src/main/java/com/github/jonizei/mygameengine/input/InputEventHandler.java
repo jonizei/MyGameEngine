@@ -3,6 +3,7 @@ package com.github.jonizei.mygameengine.input;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,10 @@ public class InputEventHandler implements EventHandler<KeyEvent> {
     public void handle(KeyEvent event) {
 
         if(event.getEventType() == KeyEvent.KEY_PRESSED) {
-            Input.getInputSettings().getInputKeyList().stream().filter(inputKey -> inputKey.getKeyCode() == event.getCode()).forEach(inputKey -> inputKey.setPressed(true));
+            keyPressed(event);
         }
         else if(event.getEventType() == KeyEvent.KEY_RELEASED) {
-            Input.getInputSettings().getInputKeyList().stream().filter(inputKey -> inputKey.getKeyCode() == event.getCode()).forEach(inputKey -> inputKey.setReleased(true));
+            keyReleased(event);
         }
 
         /* IMPLEMENT TYPING LATER
@@ -27,6 +28,14 @@ public class InputEventHandler implements EventHandler<KeyEvent> {
         }
          */
 
+    }
+
+    private void keyPressed(KeyEvent event) {
+        Input.getInputSettings().getInputKeyList().stream().filter(inputKey -> inputKey.getKeyCode() == event.getCode()).forEach(inputKey -> inputKey.setPressed(true));
+    }
+
+    private void keyReleased(KeyEvent event) {
+        Input.getInputSettings().getInputKeyList().stream().filter(inputKey -> inputKey.getKeyCode() == event.getCode()).forEach(inputKey -> inputKey.setReleased(true));
     }
 
 }

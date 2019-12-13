@@ -14,13 +14,8 @@ public class MyComponent extends Component {
     @Override
     public void update() {
 
-        if(Input.getMouseKey("Left").isPressed()) {
-            System.out.println("Mouse left pressed!");
-        }
-
-        if(Input.getMouseKey("Right").isPressed()) {
-            System.out.println("Mouse right pressed!");
-        }
+        Position mousePosition = Input.getMousePosition();
+        System.out.println(mousePosition);
 
         if(Input.getKey("S").isPressed()) {
             transform.getPosition().setY(transform.getPosition().getY()+0.05);
