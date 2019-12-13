@@ -1,10 +1,15 @@
 package com.github.jonizei.mygameengine;
 
 import com.github.jonizei.mygameengine.graphics.Graphics;
+import com.github.jonizei.mygameengine.input.InputEventHandler;
+import com.github.jonizei.mygameengine.input.MouseEventHandler;
 import com.github.jonizei.mygameengine.utils.MetricConverter;
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.canvas.Canvas;
 
@@ -111,7 +116,15 @@ public class GameRenderer extends Application {
     public void initStage() {
 
         Group root = new Group();
+
         Scene scene = new Scene(root, MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
+        InputEventHandler inputEventHandler = new InputEventHandler();
+        MouseEventHandler mouseEventHandler = new MouseEventHandler();
+        scene.setOnKeyPressed(inputEventHandler);
+        scene.setOnKeyTyped(inputEventHandler);
+        scene.setOnKeyReleased(inputEventHandler);
+        scene.setOnMousePressed(mouseEventHandler);
+        scene.setOnMouseReleased(mouseEventHandler);
 
         canvas = new Canvas(MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
         graphics = new Graphics(canvas.getGraphicsContext2D());

@@ -1,6 +1,7 @@
 package com.github.jonizei.mygameengine;
 
 import com.github.jonizei.mygameengine.gamescene.GameScene;
+import com.github.jonizei.mygameengine.input.InputSettings;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ import java.util.List;
  */
 public interface GameAdapter {
     List<GameScene> create();
+    InputSettings settings();
 }

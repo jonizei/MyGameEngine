@@ -58,7 +58,7 @@ public class GameRunner implements Runnable {
      * Calls start method from every component if its enabled
      */
     public void start() {
-        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(Component::isEnabled).forEach(Component::start));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(component -> component != null).filter(Component::isEnabled).forEach(Component::start));
     }
 
     /**

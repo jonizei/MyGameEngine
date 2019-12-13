@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.input.Input;
+
 /**
  * This class is a launcher for the game
  *
@@ -22,6 +24,9 @@ public class GameLauncher {
         GameEngine.setSceneList(adapter.create());
         GameEngine.setRunner(new GameRunner());
         GameEngine.setFilePath(System.getProperty("user.dir") + "/resources/");
+
+        Input.setInputSettings(adapter.settings());
+
         new Thread(GameEngine.getRunner()).start();
 
     }

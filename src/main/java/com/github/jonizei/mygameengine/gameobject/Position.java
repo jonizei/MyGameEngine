@@ -14,7 +14,7 @@ public class Position {
      * Threshold of the position which widens the position
      * If comparing to positions together they doesn't need to be exact the same to be equal
      */
-    private final double THRESHOLD = 0.07;
+    private final double THRESHOLD = 0.008;
 
     /**
      * X value of the position
@@ -70,7 +70,7 @@ public class Position {
      * @param x X value of position
      */
     public void setX(double x) {
-        this.x = x - xOffset;
+        this.x = x;
     }
 
     /**
@@ -79,7 +79,7 @@ public class Position {
      * @param y Y value of the position
      */
     public void setY(double y) {
-        this.y = y - yOffset;
+        this.y = y;
     }
 
     /**
@@ -222,6 +222,10 @@ public class Position {
             newPosition = new Position(from.getX() + velX, from.getY() + velY);
             newPosition.setXOffset(from.getXOffset());
             newPosition.setYOffset(from.getYOffset());
+
+            if(newPosition.equals(to)) {
+                newPosition = to;
+            }
 
         }
         else {
