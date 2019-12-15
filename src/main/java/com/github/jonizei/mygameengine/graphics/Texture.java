@@ -49,6 +49,10 @@ public class Texture extends Component implements Renderable, Saveable {
      */
     private String filename;
 
+    public Texture() {
+        setId(idCounter++);
+    }
+
     /**
      * Constructor of Texture
      *

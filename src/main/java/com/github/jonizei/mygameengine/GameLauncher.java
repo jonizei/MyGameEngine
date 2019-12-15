@@ -24,10 +24,10 @@ public class GameLauncher {
     public GameLauncher(GameAdapter adapter) {
 
         GameEngine.setRenderer(GameRenderer.getInstance());
-        GameEngine.setSceneList(adapter.create());
         GameEngine.setRunner(new GameRunner());
         GameEngine.setFilePath(System.getProperty("user.dir") + "/resources/");
         GameEngine.setResources(new Resources());
+        GameEngine.setSceneList(adapter.create());
 
         Input.setInputSettings(adapter.settings());
 

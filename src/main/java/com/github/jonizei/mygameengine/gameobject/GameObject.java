@@ -218,6 +218,7 @@ public class GameObject implements Saveable {
 
             if(component != null && component instanceof Saveable) {
                 ((Saveable) component).loadInfo(jsonObject);
+                component.setGameObject(this);
             }
 
         } catch (Exception ex) {

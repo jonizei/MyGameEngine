@@ -5,11 +5,11 @@ import com.github.jonizei.mygameengine.gamescene.GameScene;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Resources {
 
@@ -50,6 +50,34 @@ public class Resources {
             ex.printStackTrace();
         }
 
+    }
+
+    public List<GameScene> loadFromSaveFile() {
+
+        List<GameScene> sceneList = new ArrayList<>();
+
+        try(FileReader reader = new FileReader(GameEngine.getFilePath() + "saves/save1.txt")) {
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            String content = "";
+            String line = "";
+            while((line = bufferedReader.readLine()) != null) {
+                content += line;
+            }
+
+            JSONObject json = new JSONObject(content);
+            JSONArray array = json.getJSONArray("scenes");
+            sceneList = IntStream.range(0, array.length()).mapToObj(array::getJSONObject).map(jsonObject -> {
+                GameScene scene = new GameScene("", 0, 0);
+                scene.loadInfo(jsonObject);
+                return scene;
+            }).collect(Collectors.toList());
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        return sceneList;
     }
 
 }

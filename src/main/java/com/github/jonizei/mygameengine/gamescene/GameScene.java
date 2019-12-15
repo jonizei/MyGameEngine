@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * This class represents a scene of the game.
@@ -196,6 +197,16 @@ public class GameScene implements Saveable {
 
     @Override
     public void loadInfo(JSONObject json) {
+        setName(json.getString("name"));
+        setWidth(json.getDouble("width"));
+        setHeight(json.getDouble("height"));
+
+        JSONArray array = json.getJSONArray("gameobjects");
+        gameObjects = IntStream.range(0, array.length()).mapToObj(array::getJSONObject).map(jsonObject -> {
+            GameObject gameObject = new GameObject("", 0, 0);
+            gameObject.loadInfo(jsonObject);
+            return gameObject;
+        }).collect(Collectors.toList());
 
     }
 
