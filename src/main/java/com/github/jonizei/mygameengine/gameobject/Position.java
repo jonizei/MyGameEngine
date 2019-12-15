@@ -1,6 +1,8 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.resource.Saveable;
 import com.github.jonizei.mygameengine.utils.MetricConverter;
+import org.json.JSONObject;
 
 /**
  * This class reperesents position in the screen
@@ -223,16 +225,28 @@ public class Position {
             newPosition.setXOffset(from.getXOffset());
             newPosition.setYOffset(from.getYOffset());
 
-            if(newPosition.equals(to)) {
-                newPosition = to;
-            }
-
         }
         else {
             newPosition = to;
         }
 
         return newPosition;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("x", x);
+        json.put("y", y);
+        json.put("xOffset", xOffset);
+        json.put("yOffset", yOffset);
+        return json;
+    }
+
+    public void toObject(JSONObject json) {
+        setX(json.getDouble("x"));
+        setY(json.getDouble("y"));
+        setXOffset(json.getDouble("xOffset"));
+        setYOffset(json.getDouble("yOffset"));
     }
 
 }

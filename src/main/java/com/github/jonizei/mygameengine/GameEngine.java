@@ -1,6 +1,7 @@
 package com.github.jonizei.mygameengine;
 
 import com.github.jonizei.mygameengine.gamescene.GameScene;
+import com.github.jonizei.mygameengine.resource.Resources;
 import javafx.application.Platform;
 
 import java.util.List;
@@ -44,6 +45,8 @@ public class GameEngine {
      * Path to the resources directory
      */
     private static String filePath;
+
+    private static Resources resources;
 
     /**
      * Sets the active GameScene
@@ -89,6 +92,14 @@ public class GameEngine {
      */
     public static String getFilePath() {
         return filePath;
+    }
+
+    public static void setResources(Resources r) {
+        resources = r;
+    }
+
+    public static Resources getResources() {
+        return resources;
     }
 
     /**

@@ -1,8 +1,14 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.resource.Saveable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * This class represents object in a game scene
@@ -10,7 +16,7 @@ import java.util.stream.Collectors;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class GameObject {
+public class GameObject implements Saveable {
 
     /**
      * Holds the id value of next GameObject
@@ -176,5 +182,53 @@ public class GameObject {
         return false;
     }
 
+    @Override
+    public JSONObject saveInfo() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("transform", transform.toJson());
+
+        JSONArray array = new JSONArray();
+        components.stream().filter(component -> component instanceof Saveable).forEach(component -> array.put(((Saveable) component).saveInfo()));
+        json.put("components", array);
+
+        return json;
+    }
+
+    @Override
+    public void loadInfo(JSONObject json) {
+        setName(json.getString("name"));
+        Transform t = new Transform();
+        t.toObject(json.getJSONObject("transform"));
+        transform = t;
+        JSONArray array = json.getJSONArray("components");
+
+        components = IntStream.range(0, array.length())
+                .mapToObj(array::getJSONObject)
+                .map(jsonObject -> initializeComponent(jsonObject))
+                .filter(component -> component != null)
+                .collect(Collectors.toList());
+
+    }
+
+    private Component initializeComponent(JSONObject jsonObject) {
+        Component component = null;
+        try {
+            component = createComponentFromClassName(jsonObject.getString("className"));
+
+            if(component != null && component instanceof Saveable) {
+                ((Saveable) component).loadInfo(jsonObject);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return component;
+    }
+
+    private Component createComponentFromClassName(String className) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        Class<?> newClass = Class.forName(className);
+        return (Component) newClass.getConstructor().newInstance();
+    }
 
 }

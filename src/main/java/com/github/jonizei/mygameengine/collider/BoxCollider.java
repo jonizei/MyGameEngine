@@ -2,6 +2,8 @@ package com.github.jonizei.mygameengine.collider;
 
 import com.github.jonizei.mygameengine.gameobject.Position;
 import com.github.jonizei.mygameengine.gameobject.Scale;
+import com.github.jonizei.mygameengine.resource.Saveable;
+import org.json.JSONObject;
 
 /**
  * This class represents a square collider which is used to detect if
@@ -10,7 +12,7 @@ import com.github.jonizei.mygameengine.gameobject.Scale;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class BoxCollider extends Collider {
+public class BoxCollider extends Collider implements Saveable {
 
     /**
      * Width and Height of the collider
@@ -141,6 +143,20 @@ public class BoxCollider extends Collider {
         }
 
         return false;
+    }
+
+    @Override
+    public JSONObject saveInfo() {
+        JSONObject json = new JSONObject();
+        json.put("className", this.getClass().getName());
+        json.put("scale", scale.toJson());
+        return json;
+    }
+
+    @Override
+    public void loadInfo(JSONObject json) {
+        scale = new Scale();
+        scale.toObject(json.getJSONObject("scale"));
     }
 
 }

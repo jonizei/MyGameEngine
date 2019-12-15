@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import org.json.JSONObject;
+
 /**
  * This class holds position and scale
  *
@@ -141,6 +143,29 @@ public class Transform {
             this.position.setYOffset(scale.getHeight()/2);
         }
 
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("position", position.toJson());
+        json.put("scale", scale.toJson());
+        json.put("rotation", rotation.toJson());
+        return json;
+    }
+
+    public void toObject(JSONObject json) {
+        Position p = new Position();
+        p.toObject(json.getJSONObject("position"));
+
+        Scale s = new Scale();
+        s.toObject(json.getJSONObject("scale"));
+
+        Rotation r = new Rotation(0);
+        r.toObject(json.getJSONObject("rotation"));
+
+        setPosition(p);
+        setScale(s);
+        setRotation(r);
     }
 
 }

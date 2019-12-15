@@ -2,6 +2,7 @@ package com.github.jonizei.mygameengine.graphics;
 
 import com.github.jonizei.mygameengine.gameobject.Transform;
 import javafx.scene.paint.Color;
+import org.json.JSONObject;
 
 /**
  * This class represents a shape
@@ -127,5 +128,30 @@ public class Shape implements Renderable {
                 break;
         }
 
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+
+        JSONObject colorJson = new JSONObject();
+        colorJson.put("red", color.getRed());
+        colorJson.put("green", color.getGreen());
+        colorJson.put("blue", color.getBlue());
+        colorJson.put("opacity", color.getOpacity());
+
+        json.put("color", colorJson);
+        return json;
+    }
+
+    public void toObject(JSONObject json) {
+        setName(json.getString("name"));
+        JSONObject colorJson = json.getJSONObject("color");
+        double red = colorJson.getDouble("red");
+        double green = colorJson.getDouble("green");
+        double blue = colorJson.getDouble("blue");
+        double opacity = colorJson.getDouble("opacity");
+
+        color = new Color(red,green,blue,1);
     }
 }

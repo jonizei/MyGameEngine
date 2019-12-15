@@ -1,0 +1,37 @@
+{"scenes": [{
+    "gameobjects": [{
+        "transform": {
+            "rotation": {
+                "angleRadians": 0,
+                "angleDegrees": 0
+            },
+            "scale": {
+                "width": 1,
+                "height": 1
+            },
+            "position": {
+                "yOffset": 0.5,
+                "xOffset": 0.5,
+                "x": 0,
+                "y": 0
+            }
+        },
+        "components": [{
+            "shape": {
+                "color": {
+                    "red": 1,
+                    "green": 0,
+                    "blue": 0,
+                    "opacity": 1
+                },
+                "name": "rectangle"
+            },
+            "name": "MyTexture",
+            "className": "com.github.jonizei.mygameengine.graphics.Texture"
+        }],
+        "name": "MyGameObject"
+    }],
+    "name": "MyScene",
+    "width": 12,
+    "height": 12
+}]}

@@ -2,6 +2,7 @@ package com.github.jonizei.mygameengine.gameobject;
 
 import com.github.jonizei.mygameengine.GameEngine;
 import com.github.jonizei.mygameengine.utils.MetricConverter;
+import org.json.JSONObject;
 
 /**
  * This class holds width and height values
@@ -162,6 +163,18 @@ public class Scale {
         }
 
         return newScale;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("width", width);
+        json.put("height", height);
+        return json;
+    }
+
+    public void toObject(JSONObject json) {
+        setWidth(json.getDouble("width"));
+        setHeight(json.getDouble("height"));
     }
 
 }

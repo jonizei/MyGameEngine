@@ -1,6 +1,8 @@
 package com.github.jonizei.mygameengine.collider;
 
 import com.github.jonizei.mygameengine.gameobject.Position;
+import com.github.jonizei.mygameengine.resource.Saveable;
+import org.json.JSONObject;
 
 /**
  * This class represents a circle collider which is used to detect if
@@ -9,7 +11,7 @@ import com.github.jonizei.mygameengine.gameobject.Position;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class CircleCollider extends Collider{
+public class CircleCollider extends Collider implements Saveable{
 
     /**
      * Radius of the collider
@@ -108,5 +110,19 @@ public class CircleCollider extends Collider{
 
         return doesOverlap;
     }
+
+    @Override
+    public JSONObject saveInfo() {
+        JSONObject json = new JSONObject();
+        json.put("className", this.getClass().getName());
+        json.put("radius", radius);
+        return json;
+    }
+
+    @Override
+    public void loadInfo(JSONObject json) {
+        setRadius(json.getDouble("radius"));
+    }
+
 
 }

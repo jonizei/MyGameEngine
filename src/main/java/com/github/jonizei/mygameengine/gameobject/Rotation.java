@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import org.json.JSONObject;
+
 /**
  * This class holds angle of the gameObject
  *
@@ -146,5 +148,18 @@ public class Rotation {
 
         return newRotation;
     }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("angleDegrees", angleDegrees);
+        json.put("angleRadians", angleRadians);
+        return json;
+    }
+
+    public void toObject(JSONObject json) {
+        setAngle(json.getDouble("angleDegrees"));
+        setAngleRadians(json.getDouble("angleRadians"));
+    }
+
 
 }

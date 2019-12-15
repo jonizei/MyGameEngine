@@ -2,6 +2,9 @@ package com.github.jonizei.mygameengine.gamescene;
 
 import com.github.jonizei.mygameengine.gameobject.Component;
 import com.github.jonizei.mygameengine.gameobject.GameObject;
+import com.github.jonizei.mygameengine.resource.Saveable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.stream.Collectors;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class GameScene {
+public class GameScene implements Saveable {
 
     /**
      * Holds the id value of next GameScene
@@ -175,6 +178,25 @@ public class GameScene {
      */
     public <T extends Component> List<GameObject> getGameObjectsByComponent(Class<T> c) {
         return (List) gameObjects.stream().filter(gameObject -> gameObject.contains(c)).collect(Collectors.toList());
+    }
+
+    @Override
+    public JSONObject saveInfo() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("width", width);
+        json.put("height", height);
+
+        JSONArray array = new JSONArray();
+        gameObjects.stream().forEach(gameObject -> array.put(gameObject.saveInfo()));
+        json.put("gameobjects", array);
+
+        return json;
+    }
+
+    @Override
+    public void loadInfo(JSONObject json) {
+
     }
 
 }

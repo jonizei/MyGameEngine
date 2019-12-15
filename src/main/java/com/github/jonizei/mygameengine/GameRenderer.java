@@ -118,16 +118,9 @@ public class GameRenderer extends Application {
         Group root = new Group();
 
         Scene scene = new Scene(root, MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
-        InputEventHandler inputEventHandler = new InputEventHandler();
-        MouseEventHandler mouseEventHandler = new MouseEventHandler();
-        scene.setOnKeyPressed(inputEventHandler);
-        scene.setOnKeyTyped(inputEventHandler);
-        scene.setOnKeyReleased(inputEventHandler);
-        scene.setOnMousePressed(mouseEventHandler);
-        scene.setOnMouseReleased(mouseEventHandler);
-        scene.setOnMouseClicked(mouseEventHandler);
-        scene.setOnMouseDragged(mouseEventHandler);
-        scene.setOnMouseMoved(mouseEventHandler);
+
+        setInputEventHandlers(scene);
+        setMouseEventHandlers(scene);
 
         canvas = new Canvas(MetricConverter.toPixels(GameEngine.getScene().getWidth()), MetricConverter.toPixels(GameEngine.getScene().getHeight()));
         graphics = new Graphics(canvas.getGraphicsContext2D());
@@ -145,6 +138,26 @@ public class GameRenderer extends Application {
      */
     public Graphics getGraphics() {
         return this.graphics;
+    }
+
+    private void setInputEventHandlers(Scene scene) {
+
+        InputEventHandler inputEventHandler = new InputEventHandler();
+        scene.setOnKeyPressed(inputEventHandler);
+        scene.setOnKeyTyped(inputEventHandler);
+        scene.setOnKeyReleased(inputEventHandler);
+
+    }
+
+    private void setMouseEventHandlers(Scene scene) {
+
+        MouseEventHandler mouseEventHandler = new MouseEventHandler();
+        scene.setOnMousePressed(mouseEventHandler);
+        scene.setOnMouseReleased(mouseEventHandler);
+        scene.setOnMouseClicked(mouseEventHandler);
+        scene.setOnMouseDragged(mouseEventHandler);
+        scene.setOnMouseMoved(mouseEventHandler);
+
     }
 
 }

@@ -2,8 +2,10 @@ package com.github.jonizei.mygameengine.graphics;
 
 import com.github.jonizei.mygameengine.GameEngine;
 import com.github.jonizei.mygameengine.gameobject.Component;
+import com.github.jonizei.mygameengine.resource.Saveable;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import org.json.JSONObject;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +17,7 @@ import java.io.FileNotFoundException;
  * @author Joni Koskinen
  * @version 2019-12-02
  */
-public class Texture extends Component implements Renderable {
+public class Texture extends Component implements Renderable, Saveable {
 
     /**
      * Holds the id value of the next Texture
@@ -158,7 +160,7 @@ public class Texture extends Component implements Renderable {
     public void setImage(String filename) {
 
         try {
-            this.image = new Image(new FileInputStream(GameEngine.getFilePath() + filename));
+            this.image = new Image(new FileInputStream(GameEngine.getFilePath() + "textures/" + filename));
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
@@ -212,6 +214,37 @@ public class Texture extends Component implements Renderable {
         }
         else if(image != null) {
             graphics.drawImage(transform, image);
+        }
+
+    }
+
+    @Override
+    public JSONObject saveInfo() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("className", this.getClass().getName());
+
+        if(shape != null) {
+            json.put("shape", shape.toJson());
+        }
+        else if(!filename.equals("")) {
+            json.put("filename", filename);
+        }
+
+        return json;
+    }
+
+    @Override
+    public void loadInfo(JSONObject json) {
+        setName(json.getString("name"));
+
+        if(json.has("shape")) {
+            Shape shape = new Shape();
+            shape.toObject(json.getJSONObject("shape"));
+            setShape(shape);
+        }
+        else if(json.has("filename")) {
+            filename = json.getString("filename");
         }
 
     }

@@ -1,5 +1,8 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.resource.Saveable;
+import org.json.JSONObject;
+
 /**
  * This class represents feature of a GameObject
  *
@@ -74,6 +77,5 @@ public abstract class Component {
     public void setEnabled(boolean value) {
         this.isEnabled = value;
     }
-
 
 }
