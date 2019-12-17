@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class GameScene implements Saveable {
+public class GameScene implements Saveable<GameScene> {
 
     /**
      * Holds the id value of next GameScene
@@ -49,6 +49,10 @@ public class GameScene implements Saveable {
      * List of GameObjects in the GameScene
      */
     private List<GameObject> gameObjects;
+
+    public GameScene() {
+        this.id = idCounter++;
+    }
 
     /**
      * Constructor of GameScene
@@ -182,32 +186,29 @@ public class GameScene implements Saveable {
     }
 
     @Override
-    public JSONObject saveInfo() {
+    public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("width", width);
         json.put("height", height);
 
         JSONArray array = new JSONArray();
-        gameObjects.stream().forEach(gameObject -> array.put(gameObject.saveInfo()));
+        gameObjects.stream().forEach(gameObject -> array.put(gameObject.toJson()));
         json.put("gameobjects", array);
 
         return json;
     }
 
     @Override
-    public void loadInfo(JSONObject json) {
+    public GameScene toObject(JSONObject json) {
         setName(json.getString("name"));
         setWidth(json.getDouble("width"));
         setHeight(json.getDouble("height"));
 
         JSONArray array = json.getJSONArray("gameobjects");
-        gameObjects = IntStream.range(0, array.length()).mapToObj(array::getJSONObject).map(jsonObject -> {
-            GameObject gameObject = new GameObject("", 0, 0);
-            gameObject.loadInfo(jsonObject);
-            return gameObject;
-        }).collect(Collectors.toList());
+        gameObjects = IntStream.range(0, array.length()).mapToObj(array::getJSONObject).map(new GameObject()::toObject).collect(Collectors.toList());
 
+        return this;
     }
 
 }

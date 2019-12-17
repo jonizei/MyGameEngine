@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class Position {
+public class Position implements Saveable<Position> {
 
     /**
      * Threshold of the position which widens the position
@@ -233,6 +233,7 @@ public class Position {
         return newPosition;
     }
 
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("x", x);
@@ -242,11 +243,14 @@ public class Position {
         return json;
     }
 
-    public void toObject(JSONObject json) {
+    @Override
+    public Position toObject(JSONObject json) {
         setX(json.getDouble("x"));
         setY(json.getDouble("y"));
         setXOffset(json.getDouble("xOffset"));
         setYOffset(json.getDouble("yOffset"));
+
+        return this;
     }
 
 }

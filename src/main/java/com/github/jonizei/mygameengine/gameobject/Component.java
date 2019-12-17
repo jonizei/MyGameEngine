@@ -9,7 +9,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public abstract class Component {
+public abstract class Component implements Saveable<Component> {
 
     /**
      * Parent GameObject of the component
@@ -76,6 +76,18 @@ public abstract class Component {
      */
     public void setEnabled(boolean value) {
         this.isEnabled = value;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("className", this.getClass().getName());
+        return json;
+    }
+
+    @Override
+    public Component toObject(JSONObject json) {
+        return this;
     }
 
 }

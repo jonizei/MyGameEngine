@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
  * @author Joni Koskinen
  * @version 2019-12-02
  */
-public class Texture extends Component implements Renderable, Saveable {
+public class Texture extends Component implements Renderable {
 
     /**
      * Holds the id value of the next Texture
@@ -223,7 +223,7 @@ public class Texture extends Component implements Renderable, Saveable {
     }
 
     @Override
-    public JSONObject saveInfo() {
+    public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("className", this.getClass().getName());
@@ -239,18 +239,18 @@ public class Texture extends Component implements Renderable, Saveable {
     }
 
     @Override
-    public void loadInfo(JSONObject json) {
+    public Texture toObject(JSONObject json) {
         setName(json.getString("name"));
 
         if(json.has("shape")) {
-            Shape shape = new Shape();
-            shape.toObject(json.getJSONObject("shape"));
+            shape = new Shape().toObject(json.getJSONObject("shape"));
             setShape(shape);
         }
         else if(json.has("filename")) {
             filename = json.getString("filename");
         }
 
+        return this;
     }
 
 }

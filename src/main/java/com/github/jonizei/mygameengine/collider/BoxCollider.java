@@ -12,7 +12,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class BoxCollider extends Collider implements Saveable {
+public class BoxCollider extends Collider {
 
     /**
      * Width and Height of the collider
@@ -146,7 +146,7 @@ public class BoxCollider extends Collider implements Saveable {
     }
 
     @Override
-    public JSONObject saveInfo() {
+    public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("className", this.getClass().getName());
         json.put("scale", scale.toJson());
@@ -154,9 +154,11 @@ public class BoxCollider extends Collider implements Saveable {
     }
 
     @Override
-    public void loadInfo(JSONObject json) {
+    public BoxCollider toObject(JSONObject json) {
         scale = new Scale();
         scale.toObject(json.getJSONObject("scale"));
+
+        return this;
     }
 
 }

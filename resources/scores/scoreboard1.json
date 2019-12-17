@@ -1,0 +1,17 @@
+{
+    "scores": [
+        {
+            "name": "Jack",
+            "value": 3
+        },
+        {
+            "name": "Dean",
+            "value": 6
+        },
+        {
+            "name": "Tiina",
+            "value": 10
+        }
+    ],
+    "name": "MyScoreboard"
+}

@@ -1,5 +1,6 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.resource.Saveable;
 import org.json.JSONObject;
 
 /**
@@ -8,7 +9,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-27
  */
-public class Rotation {
+public class Rotation implements Saveable<Rotation> {
 
     /**
      * Threshold that widens the angle
@@ -149,6 +150,7 @@ public class Rotation {
         return newRotation;
     }
 
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("angleDegrees", angleDegrees);
@@ -156,9 +158,12 @@ public class Rotation {
         return json;
     }
 
-    public void toObject(JSONObject json) {
+    @Override
+    public Rotation toObject(JSONObject json) {
         setAngle(json.getDouble("angleDegrees"));
         setAngleRadians(json.getDouble("angleRadians"));
+
+        return this;
     }
 
 

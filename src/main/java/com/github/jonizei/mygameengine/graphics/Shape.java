@@ -1,6 +1,7 @@
 package com.github.jonizei.mygameengine.graphics;
 
 import com.github.jonizei.mygameengine.gameobject.Transform;
+import com.github.jonizei.mygameengine.resource.Saveable;
 import javafx.scene.paint.Color;
 import org.json.JSONObject;
 
@@ -10,7 +11,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-12-02
  */
-public class Shape implements Renderable {
+public class Shape implements Renderable, Saveable<Shape> {
 
     /**
      * Constant shape that is rectangle
@@ -130,6 +131,7 @@ public class Shape implements Renderable {
 
     }
 
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
@@ -144,7 +146,8 @@ public class Shape implements Renderable {
         return json;
     }
 
-    public void toObject(JSONObject json) {
+    @Override
+    public Shape toObject(JSONObject json) {
         setName(json.getString("name"));
         JSONObject colorJson = json.getJSONObject("color");
         double red = colorJson.getDouble("red");
@@ -153,5 +156,7 @@ public class Shape implements Renderable {
         double opacity = colorJson.getDouble("opacity");
 
         color = new Color(red,green,blue,1);
+
+        return this;
     }
 }

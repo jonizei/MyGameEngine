@@ -19,7 +19,7 @@ public class MyGame implements GameAdapter {
     public List<GameScene> create() {
 
         List<GameScene> sceneList = new ArrayList<>();
-        sceneList = GameEngine.getResources().loadFromSaveFile();
+        sceneList = GameEngine.getResources().loadSaveFile("save1");
 
         /*
         GameScene scene = new GameScene("MyScene",12, 12);
@@ -29,7 +29,8 @@ public class MyGame implements GameAdapter {
         scene.addGameObject(gameObject);
 
         sceneList.add(scene);
-         */
+        */
+
 
         return sceneList;
     }

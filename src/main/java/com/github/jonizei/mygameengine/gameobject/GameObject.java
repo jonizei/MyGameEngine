@@ -1,5 +1,6 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.gamescene.GameScene;
 import com.github.jonizei.mygameengine.resource.Saveable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,7 +17,7 @@ import java.util.stream.IntStream;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class GameObject implements Saveable {
+public class GameObject implements Saveable<GameObject> {
 
     /**
      * Holds the id value of next GameObject
@@ -42,6 +43,10 @@ public class GameObject implements Saveable {
      * Transform object which contains position and scale of the GameObject
      */
     private Transform transform;
+
+    public GameObject() {
+        this.id = idCounter++;
+    }
 
     /**
      * Constructor of the GameObject
@@ -183,20 +188,20 @@ public class GameObject implements Saveable {
     }
 
     @Override
-    public JSONObject saveInfo() {
+    public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
         json.put("transform", transform.toJson());
 
         JSONArray array = new JSONArray();
-        components.stream().filter(component -> component instanceof Saveable).forEach(component -> array.put(((Saveable) component).saveInfo()));
+        components.stream().filter(component -> component instanceof Saveable).forEach(component -> array.put(((Saveable) component).toJson()));
         json.put("components", array);
 
         return json;
     }
 
     @Override
-    public void loadInfo(JSONObject json) {
+    public GameObject toObject(JSONObject json) {
         setName(json.getString("name"));
         Transform t = new Transform();
         t.toObject(json.getJSONObject("transform"));
@@ -209,18 +214,14 @@ public class GameObject implements Saveable {
                 .filter(component -> component != null)
                 .collect(Collectors.toList());
 
+        return this;
     }
 
     private Component initializeComponent(JSONObject jsonObject) {
         Component component = null;
         try {
-            component = createComponentFromClassName(jsonObject.getString("className"));
-
-            if(component != null && component instanceof Saveable) {
-                ((Saveable) component).loadInfo(jsonObject);
-                component.setGameObject(this);
-            }
-
+            component = createComponentFromClassName(jsonObject.getString("className")).toObject(jsonObject);
+            component.setGameObject(this);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

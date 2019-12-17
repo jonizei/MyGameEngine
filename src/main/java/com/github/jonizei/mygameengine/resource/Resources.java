@@ -13,15 +13,23 @@ import java.util.stream.IntStream;
 
 public class Resources {
 
+    private String texturePath = "textures/";
+    private String savePath = "saves/";
+    private String scorePath = "scores/";
+
+    private List<ScoreBoard> scoreBoards;
+
     public Resources() {
         createDirectories();
+        scoreBoards = new ArrayList<>();
     }
 
-    public void createDirectories() {
+    private void createDirectories() {
 
         File resourceDir = new File(GameEngine.getFilePath());
-        File textureDir = new File(GameEngine.getFilePath() + "textures/");
-        File saveDir = new File(GameEngine.getFilePath() + "saves/");
+        File textureDir = new File(GameEngine.getFilePath() + texturePath);
+        File saveDir = new File(GameEngine.getFilePath() + savePath);
+        File scoreDir = new File(GameEngine.getFilePath() + scorePath);
 
         if(!resourceDir.exists()) {
             resourceDir.mkdir();
@@ -32,52 +40,83 @@ public class Resources {
         if(!saveDir.exists()) {
             saveDir.mkdir();
         }
+        if(!scoreDir.exists()) {
+            scoreDir.mkdir();
+        }
 
     }
 
-    public void createSaveFile(List<GameScene> sceneList) {
+    public void createSaveFile(List<GameScene> sceneList, String filename) {
 
         List<Saveable> saveableList = sceneList.stream().filter(gameScene -> gameScene instanceof Saveable).map(gameScene -> (Saveable) gameScene).collect(Collectors.toList());
 
         JSONObject rootJson = new JSONObject();
         JSONArray array = new JSONArray();
-        saveableList.stream().forEach(saveable -> array.put(saveable.saveInfo()));
+        saveableList.stream().forEach(saveable -> array.put(saveable.toJson()));
         rootJson.put("scenes", array);
 
-        try(FileWriter writer = new FileWriter(GameEngine.getFilePath() + "saves/save1.txt")) {
-            writer.write(rootJson.toString(4));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        writeToJsonFile(GameEngine.getFilePath() + savePath + filename + ".json", rootJson);
 
     }
 
-    public List<GameScene> loadFromSaveFile() {
+    public List<GameScene> loadSaveFile(String filename) {
 
-        List<GameScene> sceneList = new ArrayList<>();
+        JSONObject json = new JSONObject(readFileContents(GameEngine.getFilePath() + savePath + filename + ".json"));
+        JSONArray array = json.getJSONArray("scenes");
+        List<GameScene> sceneList = IntStream.range(0, array.length()).mapToObj(array::getJSONObject).map(new GameScene()::toObject).collect(Collectors.toList());
 
-        try(FileReader reader = new FileReader(GameEngine.getFilePath() + "saves/save1.txt")) {
+        return sceneList;
+    }
+
+    public void createScoreFile(ScoreBoard scoreBoard, String filename) {
+        writeToJsonFile(GameEngine.getFilePath() + scorePath + filename + ".json", scoreBoard.toJson());
+    }
+
+    public ScoreBoard loadScoreFile(String filename) {
+
+        JSONObject json = new JSONObject(readFileContents(GameEngine.getFilePath() + scorePath + filename + ".json"));
+        ScoreBoard scoreBoard = new ScoreBoard("").toObject(json);
+
+        return scoreBoard;
+    }
+
+    public ScoreBoard createScoreBoard(String name) {
+        ScoreBoard scoreBoard = new ScoreBoard(name);
+        scoreBoards.add(scoreBoard);
+        return scoreBoard;
+    }
+
+    public ScoreBoard getScoreBoard(String name) {
+        return scoreBoards.stream().filter(scoreBoard -> scoreBoard.getName().equals(name)).collect(Collectors.toList()).get(0);
+    }
+
+    private String readFileContents(String filePath) {
+
+        String content = "";
+
+        try(FileReader reader = new FileReader(filePath)) {
             BufferedReader bufferedReader = new BufferedReader(reader);
 
-            String content = "";
             String line = "";
             while((line = bufferedReader.readLine()) != null) {
                 content += line;
             }
 
-            JSONObject json = new JSONObject(content);
-            JSONArray array = json.getJSONArray("scenes");
-            sceneList = IntStream.range(0, array.length()).mapToObj(array::getJSONObject).map(jsonObject -> {
-                GameScene scene = new GameScene("", 0, 0);
-                scene.loadInfo(jsonObject);
-                return scene;
-            }).collect(Collectors.toList());
-
         } catch (IOException ex) {
             ex.printStackTrace();
         }
 
-        return sceneList;
+        return content;
+    }
+
+    private void writeToJsonFile(String filePath, JSONObject root) {
+
+        try(FileWriter writer = new FileWriter(filePath)) {
+            writer.write(root.toString(4));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
 }

@@ -3,6 +3,8 @@ package com.github.jonizei.mygameengine;
 import com.github.jonizei.mygameengine.gameobject.Component;
 import com.github.jonizei.mygameengine.gameobject.Position;
 import com.github.jonizei.mygameengine.input.Input;
+import com.github.jonizei.mygameengine.resource.ScoreBoard;
+import org.json.JSONObject;
 
 public class MyComponent extends Component {
 
@@ -17,7 +19,12 @@ public class MyComponent extends Component {
     public void update() {
 
         if(!fileCreated) {
-            GameEngine.getResources().createSaveFile(GameEngine.getSceneList());
+            GameEngine.getResources().createSaveFile(GameEngine.getSceneList(), "save1");
+            ScoreBoard board = GameEngine.getResources().createScoreBoard("MyScoreboard");
+            board.addScore("Tiina", 10);
+            board.addScore("Jack", 3);
+            board.addScore("Dean", 6);
+            GameEngine.getResources().createScoreFile(board, "scoreboard1");
             fileCreated = true;
         }
 

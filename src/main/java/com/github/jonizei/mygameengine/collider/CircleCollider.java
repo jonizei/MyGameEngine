@@ -11,7 +11,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class CircleCollider extends Collider implements Saveable{
+public class CircleCollider extends Collider {
 
     /**
      * Radius of the collider
@@ -112,7 +112,7 @@ public class CircleCollider extends Collider implements Saveable{
     }
 
     @Override
-    public JSONObject saveInfo() {
+    public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("className", this.getClass().getName());
         json.put("radius", radius);
@@ -120,8 +120,9 @@ public class CircleCollider extends Collider implements Saveable{
     }
 
     @Override
-    public void loadInfo(JSONObject json) {
+    public CircleCollider toObject(JSONObject json) {
         setRadius(json.getDouble("radius"));
+        return this;
     }
 
 

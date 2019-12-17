@@ -2,7 +2,7 @@ package com.github.jonizei.mygameengine.resource;
 
 import org.json.JSONObject;
 
-public interface Saveable {
-    JSONObject saveInfo();
-    void loadInfo(JSONObject json);
+public interface Saveable<T> {
+    JSONObject toJson();
+    T toObject(JSONObject json);
 }

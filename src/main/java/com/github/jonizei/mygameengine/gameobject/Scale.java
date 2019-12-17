@@ -1,6 +1,7 @@
 package com.github.jonizei.mygameengine.gameobject;
 
 import com.github.jonizei.mygameengine.GameEngine;
+import com.github.jonizei.mygameengine.resource.Saveable;
 import com.github.jonizei.mygameengine.utils.MetricConverter;
 import org.json.JSONObject;
 
@@ -10,7 +11,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-26
  */
-public class Scale {
+public class Scale implements Saveable<Scale> {
 
     /**
      * Threshold which widens the width and height
@@ -165,6 +166,7 @@ public class Scale {
         return newScale;
     }
 
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("width", width);
@@ -172,9 +174,12 @@ public class Scale {
         return json;
     }
 
-    public void toObject(JSONObject json) {
+    @Override
+    public Scale toObject(JSONObject json) {
         setWidth(json.getDouble("width"));
         setHeight(json.getDouble("height"));
+
+        return this;
     }
 
 }

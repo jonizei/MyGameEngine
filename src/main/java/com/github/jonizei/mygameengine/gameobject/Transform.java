@@ -1,5 +1,6 @@
 package com.github.jonizei.mygameengine.gameobject;
 
+import com.github.jonizei.mygameengine.resource.Saveable;
 import org.json.JSONObject;
 
 /**
@@ -8,7 +9,7 @@ import org.json.JSONObject;
  * @author Joni Koskinen
  * @version 2019-11-14
  */
-public class Transform {
+public class Transform implements Saveable<Transform> {
 
     /**
      * Position object
@@ -145,6 +146,7 @@ public class Transform {
 
     }
 
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("position", position.toJson());
@@ -153,7 +155,8 @@ public class Transform {
         return json;
     }
 
-    public void toObject(JSONObject json) {
+    @Override
+    public Transform toObject(JSONObject json) {
         Position p = new Position();
         p.toObject(json.getJSONObject("position"));
 
@@ -166,6 +169,8 @@ public class Transform {
         setPosition(p);
         setScale(s);
         setRotation(r);
+
+        return this;
     }
 
 }
