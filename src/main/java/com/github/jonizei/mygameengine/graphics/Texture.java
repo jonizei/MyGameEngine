@@ -222,6 +222,12 @@ public class Texture extends Component implements Renderable {
 
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Creates json object using necessary information from this class
+     *
+     * @return JsonObject with necessary information
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -238,6 +244,13 @@ public class Texture extends Component implements Renderable {
         return json;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Tries to initialize this object using given json object
+     *
+     * @param json JsonObject holding object information
+     * @return Instance of this class
+     */
     @Override
     public Texture toObject(JSONObject json) {
         setName(json.getString("name"));

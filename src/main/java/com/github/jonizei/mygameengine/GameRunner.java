@@ -1,8 +1,13 @@
 package com.github.jonizei.mygameengine;
 
 import com.github.jonizei.mygameengine.gameobject.Component;
+import com.github.jonizei.mygameengine.gameobject.GameObject;
+import com.github.jonizei.mygameengine.gamescene.GameScene;
 import com.github.jonizei.mygameengine.graphics.Renderable;
+import com.github.jonizei.mygameengine.graphics.Texture;
 import javafx.application.Platform;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +20,6 @@ public class GameRunner implements Runnable {
      * The time that thread sleeps every loop in milliseconds
      */
     private static final long FRAME_SPEED_MILLIS = 16;
-
 
     /**
      * The time that thread sleeps every loop in nanoseconds
@@ -58,7 +62,7 @@ public class GameRunner implements Runnable {
      * Calls start method from every component if its enabled
      */
     public void start() {
-        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(component -> component != null).filter(Component::isEnabled).forEach(Component::start));
+        GameEngine.getScene().getGameObjects().forEach(gameObject -> gameObject.getComponents().stream().filter(component -> component != null).forEach(Component::start));
     }
 
     /**
@@ -76,7 +80,12 @@ public class GameRunner implements Runnable {
         GameEngine.getRenderer().getGraphics().clearRect(0, 0, GameEngine.getScene().getWidth(), GameEngine.getScene().getHeight());
 
         GameEngine.getScene().getGameObjects().stream().forEach(gameObject -> {
-            List<Renderable> components = (List) gameObject.getComponents().stream().filter(component -> component != null).filter(component -> component instanceof Renderable).collect(Collectors.toList());
+            List<Renderable> components = (List) gameObject.getComponents().stream()
+                    .filter(component -> component != null)
+                    .filter(Component::isEnabled)
+                    .filter(component -> component instanceof Renderable)
+                    .collect(Collectors.toList());
+
             components.forEach(item -> item.render(GameEngine.getRenderer().getGraphics()));
         });
     }

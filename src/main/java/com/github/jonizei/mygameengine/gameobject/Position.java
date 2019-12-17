@@ -233,6 +233,12 @@ public class Position implements Saveable<Position> {
         return newPosition;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Creates json object using necessary information from this class
+     *
+     * @return JsonObject with necessary information
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -243,6 +249,13 @@ public class Position implements Saveable<Position> {
         return json;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Tries to initialize this object using given json object
+     *
+     * @param json JsonObject holding object information
+     * @return Instance of this class
+     */
     @Override
     public Position toObject(JSONObject json) {
         setX(json.getDouble("x"));

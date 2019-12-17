@@ -145,6 +145,12 @@ public class BoxCollider extends Collider {
         return false;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Creates json object using necessary information from this class
+     *
+     * @return JsonObject with necessary information
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -153,10 +159,16 @@ public class BoxCollider extends Collider {
         return json;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Tries to initialize this object using given json object
+     *
+     * @param json JsonObject holding object information
+     * @return Instance of this class
+     */
     @Override
     public BoxCollider toObject(JSONObject json) {
-        scale = new Scale();
-        scale.toObject(json.getJSONObject("scale"));
+        scale = new Scale().toObject(json.getJSONObject("scale"));
 
         return this;
     }

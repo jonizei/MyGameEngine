@@ -166,6 +166,12 @@ public class Scale implements Saveable<Scale> {
         return newScale;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Creates json object using necessary information from this class
+     *
+     * @return JsonObject with necessary information
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -174,6 +180,13 @@ public class Scale implements Saveable<Scale> {
         return json;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Tries to initialize this object using given json object
+     *
+     * @param json JsonObject holding object information
+     * @return Instance of this class
+     */
     @Override
     public Scale toObject(JSONObject json) {
         setWidth(json.getDouble("width"));

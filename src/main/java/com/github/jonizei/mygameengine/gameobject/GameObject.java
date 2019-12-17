@@ -44,6 +44,10 @@ public class GameObject implements Saveable<GameObject> {
      */
     private Transform transform;
 
+    /**
+     * Default Constructor of GameObject
+     * Initializes id of the GameObject
+     */
     public GameObject() {
         this.id = idCounter++;
     }
@@ -187,6 +191,12 @@ public class GameObject implements Saveable<GameObject> {
         return false;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Creates json object using necessary information from this class
+     *
+     * @return JsonObject with necessary information
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -200,6 +210,13 @@ public class GameObject implements Saveable<GameObject> {
         return json;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Tries to initialize this object using given json object
+     *
+     * @param json JsonObject holding object information
+     * @return Instance of this class
+     */
     @Override
     public GameObject toObject(JSONObject json) {
         setName(json.getString("name"));
@@ -217,6 +234,13 @@ public class GameObject implements Saveable<GameObject> {
         return this;
     }
 
+    /**
+     * Creates Component instance using JsonObject which holds
+     * information about component
+     *
+     * @param jsonObject JsonObject which holds component information
+     * @return Instance of Component
+     */
     private Component initializeComponent(JSONObject jsonObject) {
         Component component = null;
         try {
@@ -228,6 +252,19 @@ public class GameObject implements Saveable<GameObject> {
         return component;
     }
 
+    /**
+     * Creates Component instance using given class name
+     *
+     * @param className Class name which extends from Component class
+     * @return Instance of Class with given class name
+     * @throws ClassNotFoundException
+     * @throws NoSuchMethodException
+     * @throws SecurityException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     * @throws IllegalArgumentException
+     * @throws InvocationTargetException
+     */
     private Component createComponentFromClassName(String className) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Class<?> newClass = Class.forName(className);
         return (Component) newClass.getConstructor().newInstance();

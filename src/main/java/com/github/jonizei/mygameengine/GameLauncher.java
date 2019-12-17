@@ -16,16 +16,17 @@ public class GameLauncher {
     /**
      * Constructor of GameLauncher
      *
-     * Initializes the GameRenderer, GameRunner and List of GameScenes to GameEngine class
-     * and then starts the GameRenderer in a new thread. Also initializes path to resources directory
+     * Initializes the GameRenderer, GameRunner, List of GameScenes to GameEngine class,
+     * Resources and InputSettings and then starts the GameRenderer in a new thread.
+     * Also initializes path to resources directory.
      *
      * @param adapter Class which implements GameAdapter interface
      */
     public GameLauncher(GameAdapter adapter) {
 
+        GameEngine.setFilePath(System.getProperty("user.dir") + "/resources/");
         GameEngine.setRenderer(GameRenderer.getInstance());
         GameEngine.setRunner(new GameRunner());
-        GameEngine.setFilePath(System.getProperty("user.dir") + "/resources/");
         GameEngine.setResources(new Resources());
         GameEngine.setSceneList(adapter.create());
 

@@ -50,6 +50,10 @@ public class GameScene implements Saveable<GameScene> {
      */
     private List<GameObject> gameObjects;
 
+    /**
+     * Default Constructor of GameScene
+     * Inititalizes id of GameScene
+     */
     public GameScene() {
         this.id = idCounter++;
     }
@@ -185,6 +189,12 @@ public class GameScene implements Saveable<GameScene> {
         return (List) gameObjects.stream().filter(gameObject -> gameObject.contains(c)).collect(Collectors.toList());
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Creates json object using necessary information from this class
+     *
+     * @return JsonObject with necessary information
+     */
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -199,6 +209,13 @@ public class GameScene implements Saveable<GameScene> {
         return json;
     }
 
+    /**
+     * Overrided method from Saveable interface.
+     * Tries to initialize this object using given json object
+     *
+     * @param json JsonObject holding object information
+     * @return Instance of this class
+     */
     @Override
     public GameScene toObject(JSONObject json) {
         setName(json.getString("name"));

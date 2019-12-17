@@ -9,12 +9,35 @@ import javafx.scene.input.MouseEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class is used to listen all mouse events
+ *
+ * @author Joni Koskinen
+ * @version 2019-12-17
+ */
 public class MouseEventHandler implements EventHandler<MouseEvent> {
 
-    private List<InputKey> mouseKeys;
-    private boolean isKeysReleased = true;
+    /**
+     * Last clicked mouse button
+     */
+    private MouseKey mouseKey;
+
+    /**
+     * Boolean value which tells if clicked mouse button is released
+     */
+    private boolean isKeyReleased = true;
+
+    /**
+     * Time in milliseconds after the clicked mouse button will be released
+     */
     private long clickSleepTime = 20;
 
+    /**
+     * Overrided method from EventHandler
+     * Checks if MouseEvent has been executed
+     *
+     * @param event MouseEvent object
+     */
     @Override
     public void handle(MouseEvent event) {
 
@@ -36,26 +59,59 @@ public class MouseEventHandler implements EventHandler<MouseEvent> {
 
     }
 
+    /**
+     * If mouse button has been pressed it checks if InputSettings has the key in its MouseKey list
+     * If the key exists it sets isPressed to true in MouseKey
+     *
+     * @param event MouseEvent object
+     */
     private void mousePressed(MouseEvent event) {
         Input.getInputSettings().getMouseKeyList().stream().filter(mouseKey -> mouseKey.getMouseButton() == event.getButton()).forEach(mouseKey -> mouseKey.setPressed(true));
     }
 
+    /**
+     * If mouse button has been released it checks if InputSettings has the key in its MouseKey list
+     * If the key exists it sets isReleased to true in MouseKey
+     *
+     * @param event MouseEvent object
+     */
     private void mouseReleased(MouseEvent event) {
         Input.getInputSettings().getMouseKeyList().stream().filter(mouseKey -> mouseKey.getMouseButton() == event.getButton()).forEach(mouseKey -> mouseKey.setReleased(true));
     }
 
+    /**
+     * If mouse button has been clicked it checks if InputSettings has the key in its MouseKey list
+     * If the key exists it checks if last clicked mouse button has been released
+     * If the key is released it sets isClicked to true in MouseKey and starts new Thread
+     * which will sleep few milliseconds and after that it sets isClicked to false in MouseKey
+     * and sets isKeyReleased to true;
+     *
+     * @param event MouseEvent object
+     */
     private void mouseClicked(MouseEvent event) {
-        if(isKeysReleased) {
-            mouseKeys = Input.getInputSettings().getMouseKeyList().stream().filter(mouseKey -> mouseKey.getMouseButton() == event.getButton()).collect(Collectors.toList());
-            mouseKeys.forEach(mouseKey -> mouseKey.setClicked(true));
+        if(isKeyReleased) {
+            mouseKey = Input.getInputSettings().getMouseKeyList().stream().filter(mouseKey -> mouseKey.getMouseButton() == event.getButton()).collect(Collectors.toList()).get(0);
+            mouseKey.setClicked(true);
             new Thread(this::releaseClicked).start();
         }
     }
 
+    /**
+     * If mouse button has been dragged it checks if InputSettings has the key in its MouseKey list
+     * If the key exists it sets isDragged to true in MouseKey
+     *
+     * @param event MouseEvent object
+     */
     private void mouseDragged(MouseEvent event) {
         Input.getInputSettings().getMouseKeyList().stream().filter(mouseKey -> mouseKey.getMouseButton() == event.getButton()).forEach(mouseKey -> mouseKey.setDragged(true));
     }
 
+    /**
+     * If mouse has been moved it calls Input.setMousePosition()
+     * and set new Position value
+     *
+     * @param event MouseEvent
+     */
     private void mouseMoved(MouseEvent event) {
         Input.setMousePosition(new Position(
                 MetricConverter.toMetrics(event.getX())
@@ -63,9 +119,13 @@ public class MouseEventHandler implements EventHandler<MouseEvent> {
         );
     }
 
+    /**
+     * Sleeps few milliseconds and then sets isClicked to false in MouseKey
+     * and sets isKeyReleased to true
+     */
     private void releaseClicked() {
 
-        isKeysReleased = false;
+        isKeyReleased = false;
 
         try {
             Thread.sleep(clickSleepTime);
@@ -73,9 +133,9 @@ public class MouseEventHandler implements EventHandler<MouseEvent> {
             ex.printStackTrace();
         }
 
-        mouseKeys.forEach(mouseKey -> mouseKey.setClicked(false));
+        mouseKey.setClicked(false);
 
-        isKeysReleased = true;
+        isKeyReleased = true;
     }
 
 }

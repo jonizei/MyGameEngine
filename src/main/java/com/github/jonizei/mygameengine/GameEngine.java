@@ -1,5 +1,7 @@
 package com.github.jonizei.mygameengine;
 
+import com.github.jonizei.mygameengine.gameobject.GameObject;
+import com.github.jonizei.mygameengine.gameobject.Position;
 import com.github.jonizei.mygameengine.gamescene.GameScene;
 import com.github.jonizei.mygameengine.resource.Resources;
 import javafx.application.Platform;
@@ -32,7 +34,7 @@ public class GameEngine {
     private static GameRunner runner;
 
     /**
-     * GameRenderer objects which handles gameObject rendering
+     * GameRenderer object which handles gameObject rendering
      */
     private static GameRenderer renderer;
 
@@ -46,6 +48,9 @@ public class GameEngine {
      */
     private static String filePath;
 
+    /**
+     * Resources object which handles all resource files
+     */
     private static Resources resources;
 
     /**
@@ -94,10 +99,20 @@ public class GameEngine {
         return filePath;
     }
 
+    /**
+     * Sets the Resources
+     *
+     * @param r Resources object
+     */
     public static void setResources(Resources r) {
         resources = r;
     }
 
+    /**
+     * Returns Resources object
+     *
+     * @return Resources object
+     */
     public static Resources getResources() {
         return resources;
     }

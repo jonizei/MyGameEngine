@@ -112,6 +112,7 @@ public class GameRenderer extends Application {
 
     /**
      * Creates the window and canvas and renders them
+     * Also sets event handlers for key input and mouse input
      */
     public void initStage() {
 
@@ -140,6 +141,11 @@ public class GameRenderer extends Application {
         return this.graphics;
     }
 
+    /**
+     * Sets event handlers for key press, key typed and key released
+     *
+     * @param scene Scene for event handlers
+     */
     private void setInputEventHandlers(Scene scene) {
 
         InputEventHandler inputEventHandler = new InputEventHandler();
@@ -149,6 +155,12 @@ public class GameRenderer extends Application {
 
     }
 
+    /**
+     * Sets event handlers for mouse press, mouse released, mouse clicked,
+     * mouse dragged and mouse moved
+     *
+     * @param scene Scene for event handlers
+     */
     private void setMouseEventHandlers(Scene scene) {
 
         MouseEventHandler mouseEventHandler = new MouseEventHandler();

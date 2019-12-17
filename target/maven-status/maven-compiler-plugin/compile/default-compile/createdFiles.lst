@@ -8,10 +8,8 @@ com\github\jonizei\mygameengine\graphics\Graphics.class
 com\github\jonizei\mygameengine\graphics\Texture.class
 com\github\jonizei\mygameengine\GameLauncher.class
 com\github\jonizei\mygameengine\input\MouseKey.class
-com\github\jonizei\mygameengine\App.class
 com\github\jonizei\mygameengine\graphics\Shape.class
 com\github\jonizei\mygameengine\gamescene\GameScene.class
-com\github\jonizei\mygameengine\MyGame.class
 com\github\jonizei\mygameengine\collider\Collider.class
 com\github\jonizei\mygameengine\input\InputSettings.class
 com\github\jonizei\mygameengine\collider\BoxCollider.class
@@ -22,7 +20,6 @@ com\github\jonizei\mygameengine\utils\MetricConverter.class
 com\github\jonizei\mygameengine\gameobject\Scale.class
 com\github\jonizei\mygameengine\GameAdapter.class
 com\github\jonizei\mygameengine\gameobject\Component.class
-com\github\jonizei\mygameengine\MyComponent.class
 com\github\jonizei\mygameengine\GameEngine.class
 com\github\jonizei\mygameengine\collider\CircleCollider.class
 com\github\jonizei\mygameengine\gameobject\Position.class
