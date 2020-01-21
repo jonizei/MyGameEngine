@@ -16,12 +16,12 @@ public class Shape implements Renderable, Saveable<Shape> {
     /**
      * Constant shape that is rectangle
      */
-    public static final Shape RECTANGLE = new Shape("rectangle");
+    public static Shape RECTANGLE = new Shape("rectangle");
 
     /**
      * Constant shape that is oval
      */
-    public static final Shape OVAL = new Shape("oval");
+    public static Shape OVAL = new Shape("oval");
 
     /**
      * Name of the shape
